@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2zo-8x-0YK">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home-->
+        <scene sceneID="Q7L-cb-cXv">
+            <objects>
+                <viewController id="8MR-Bm-Thg" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aaK-oO-dup">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="n9i-eZ-wcX"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="book" catalog="system" id="YOo-9r-KIR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AJJ-Ve-85u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="76" y="-745"/>
+        </scene>
+        <!--Forum-->
+        <scene sceneID="aoY-Xt-TMh">
+            <objects>
+                <viewController id="9kF-cf-FnL" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4dU-k7-aL6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Viv-NI-abT"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Forum" image="globe" catalog="system" id="eUe-ID-HLK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YCm-Xn-QR6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="983" y="-745"/>
+        </scene>
+        <!--User-->
+        <scene sceneID="BDK-0C-E1S">
+            <objects>
+                <viewController id="qw7-vi-ybX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vwR-ry-rYB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="NQ5-7M-ahP"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="User" image="person" catalog="system" id="Whe-ZX-afX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dFP-Xf-Xob" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1911" y="-745"/>
+        </scene>
+        <!--Bookcase-->
+        <scene sceneID="1PW-CU-wxI">
+            <objects>
+                <viewController id="1kg-gc-T0A" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wlb-oV-dpL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="Q2r-mk-b5o"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Bookcase" image="tray.and.arrow.down" catalog="system" id="n4p-jc-E6l"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bgz-lN-83V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-868" y="-745"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Ftc-ea-o5D">
+            <objects>
+                <tabBarController id="2zo-8x-0YK" customClass="TabBarController" customModule="ComicApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7Ke-DC-Ryq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="1kg-gc-T0A" kind="relationship" relationship="viewControllers" id="VgY-sH-fU7"/>
+                        <segue destination="8MR-Bm-Thg" kind="relationship" relationship="viewControllers" id="QBV-bc-Puz"/>
+                        <segue destination="9kF-cf-FnL" kind="relationship" relationship="viewControllers" id="7v1-CE-Zq1"/>
+                        <segue destination="qw7-vi-ybX" kind="relationship" relationship="viewControllers" id="ecu-yW-Hh4"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hju-Y0-pAC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1791" y="-745"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="book" catalog="system" width="64" height="50"/>
+        <image name="globe" catalog="system" width="64" height="60"/>
+        <image name="person" catalog="system" width="64" height="58"/>
+        <image name="tray.and.arrow.down" catalog="system" width="64" height="54"/>
+    </resources>
+</document>

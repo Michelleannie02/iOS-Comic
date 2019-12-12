@@ -3,19 +3,40 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F02595B239FD7A40023FA30 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F02595A239FD7A40023FA30 /* TabBarController.swift */; };
+		5F88C0C2239E855100297359 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F88C0C1239E855000297359 /* GoogleService-Info.plist */; };
+		5F88C0CD239E91B200297359 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F88C0CC239E91B200297359 /* LoginViewController.swift */; };
+		5F88C0CF239E91DB00297359 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F88C0CE239E91DB00297359 /* SignUpViewController.swift */; };
+		5F88C0D1239E920E00297359 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F88C0D0239E920E00297359 /* AccountViewController.swift */; };
+		5FDCA811239F9BEC00FEC38E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDCA810239F9BEC00FEC38E /* Utilities.swift */; };
+		5FDCA813239F9C2000FEC38E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDCA812239F9C2000FEC38E /* User.swift */; };
 		5FE05578239C26F30000F144 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE05577239C26F30000F144 /* AppDelegate.swift */; };
 		5FE0557A239C26F30000F144 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE05579239C26F30000F144 /* SceneDelegate.swift */; };
 		5FE0557C239C26F30000F144 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0557B239C26F30000F144 /* ViewController.swift */; };
 		5FE0557F239C26F30000F144 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FE0557D239C26F30000F144 /* Main.storyboard */; };
 		5FE05581239C27760000F144 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FE05580239C27760000F144 /* Assets.xcassets */; };
 		5FE05584239C27770000F144 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FE05582239C27770000F144 /* LaunchScreen.storyboard */; };
+		813087958ADADB0B228F7226 /* Pods_ComicApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA689EF98AEB5FF695E81ED7 /* Pods_ComicApp.framework */; };
+		CD2D4C3F23A07E97005B049E /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D4C3E23A07E97005B049E /* InfoViewController.swift */; };
+		CD2D4C4123A07F3D005B049E /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D4C4023A07F3D005B049E /* Comic.swift */; };
+		CD2D4C4323A08534005B049E /* ChapterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D4C4223A08534005B049E /* ChapterViewController.swift */; };
+		CDEE422723A04CCC00C57D87 /* ReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE422623A04CCC00C57D87 /* ReadViewController.swift */; };
+		CDEE422923A0594600C57D87 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE422823A0594600C57D87 /* CollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		27D3054075D395D967EC8338 /* Pods-ComicApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComicApp.debug.xcconfig"; path = "Target Support Files/Pods-ComicApp/Pods-ComicApp.debug.xcconfig"; sourceTree = "<group>"; };
+		5F02595A239FD7A40023FA30 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		5F88C0C1239E855000297359 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5F88C0CC239E91B200297359 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5F88C0CE239E91DB00297359 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		5F88C0D0239E920E00297359 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		5FDCA810239F9BEC00FEC38E /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = SOURCE_ROOT; };
+		5FDCA812239F9C2000FEC38E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = ComicApp/Model/User.swift; sourceTree = SOURCE_ROOT; };
 		5FE05574239C26F30000F144 /* ComicApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComicApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE05577239C26F30000F144 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FE05579239C26F30000F144 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +45,13 @@
 		5FE05580239C27760000F144 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5FE05583239C27770000F144 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5FE05585239C27770000F144 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7FEF9E3AEDD046981FFBA2E5 /* Pods-ComicApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComicApp.release.xcconfig"; path = "Target Support Files/Pods-ComicApp/Pods-ComicApp.release.xcconfig"; sourceTree = "<group>"; };
+		CA689EF98AEB5FF695E81ED7 /* Pods_ComicApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ComicApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD2D4C3E23A07E97005B049E /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		CD2D4C4023A07F3D005B049E /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
+		CD2D4C4223A08534005B049E /* ChapterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterViewController.swift; sourceTree = "<group>"; };
+		CDEE422623A04CCC00C57D87 /* ReadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadViewController.swift; sourceTree = "<group>"; };
+		CDEE422823A0594600C57D87 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +59,51 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				813087958ADADB0B228F7226 /* Pods_ComicApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F88C0C3239E8A3100297359 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				5FDCA810239F9BEC00FEC38E /* Utilities.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		5F88C0C4239E8A4300297359 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5FDCA812239F9C2000FEC38E /* User.swift */,
+				CD2D4C4023A07F3D005B049E /* Comic.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5F88C0C7239E8A7B00297359 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5F88C0CC239E91B200297359 /* LoginViewController.swift */,
+				5F88C0CE239E91DB00297359 /* SignUpViewController.swift */,
+				5F88C0D0239E920E00297359 /* AccountViewController.swift */,
+				CDEE422623A04CCC00C57D87 /* ReadViewController.swift */,
+				CDEE422823A0594600C57D87 /* CollectionViewCell.swift */,
+				CD2D4C3E23A07E97005B049E /* InfoViewController.swift */,
+				CD2D4C4223A08534005B049E /* ChapterViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		5FE0556B239C26F20000F144 = {
 			isa = PBXGroup;
 			children = (
 				5FE05576239C26F30000F144 /* ComicApp */,
 				5FE05575239C26F30000F144 /* Products */,
+				A087EB3804460B9CD67A06C8 /* Pods */,
+				AAA6CA6A946BC06EE54B90DE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +118,37 @@
 		5FE05576239C26F30000F144 /* ComicApp */ = {
 			isa = PBXGroup;
 			children = (
+				5F88C0C3239E8A3100297359 /* Helper */,
+				5F88C0C4239E8A4300297359 /* Model */,
+				5F88C0C7239E8A7B00297359 /* ViewController */,
 				5FE05577239C26F30000F144 /* AppDelegate.swift */,
 				5FE05579239C26F30000F144 /* SceneDelegate.swift */,
+				5F02595A239FD7A40023FA30 /* TabBarController.swift */,
 				5FE0557B239C26F30000F144 /* ViewController.swift */,
 				5FE0557D239C26F30000F144 /* Main.storyboard */,
 				5FE05580239C27760000F144 /* Assets.xcassets */,
 				5FE05582239C27770000F144 /* LaunchScreen.storyboard */,
 				5FE05585239C27770000F144 /* Info.plist */,
+				5F88C0C1239E855000297359 /* GoogleService-Info.plist */,
 			);
 			path = ComicApp;
+			sourceTree = "<group>";
+		};
+		A087EB3804460B9CD67A06C8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				27D3054075D395D967EC8338 /* Pods-ComicApp.debug.xcconfig */,
+				7FEF9E3AEDD046981FFBA2E5 /* Pods-ComicApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		AAA6CA6A946BC06EE54B90DE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CA689EF98AEB5FF695E81ED7 /* Pods_ComicApp.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +158,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5FE05588239C27770000F144 /* Build configuration list for PBXNativeTarget "ComicApp" */;
 			buildPhases = (
+				E669FC6DEFD0D345EE42E67F /* [CP] Check Pods Manifest.lock */,
 				5FE05570239C26F20000F144 /* Sources */,
 				5FE05571239C26F20000F144 /* Frameworks */,
 				5FE05572239C26F20000F144 /* Resources */,
+				442237E2144AABC6CFED289D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FE05584239C27770000F144 /* LaunchScreen.storyboard in Resources */,
+				5F88C0C2239E855100297359 /* GoogleService-Info.plist in Resources */,
 				5FE05581239C27760000F144 /* Assets.xcassets in Resources */,
 				5FE0557F239C26F30000F144 /* Main.storyboard in Resources */,
 			);
@@ -133,14 +220,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		442237E2144AABC6CFED289D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ComicApp/Pods-ComicApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ComicApp/Pods-ComicApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ComicApp/Pods-ComicApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E669FC6DEFD0D345EE42E67F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ComicApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5FE05570239C26F20000F144 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F88C0CF239E91DB00297359 /* SignUpViewController.swift in Sources */,
 				5FE0557C239C26F30000F144 /* ViewController.swift in Sources */,
+				5FDCA811239F9BEC00FEC38E /* Utilities.swift in Sources */,
+				5F02595B239FD7A40023FA30 /* TabBarController.swift in Sources */,
+				CDEE422723A04CCC00C57D87 /* ReadViewController.swift in Sources */,
+				5F88C0D1239E920E00297359 /* AccountViewController.swift in Sources */,
+				5FDCA813239F9C2000FEC38E /* User.swift in Sources */,
 				5FE05578239C26F30000F144 /* AppDelegate.swift in Sources */,
 				5FE0557A239C26F30000F144 /* SceneDelegate.swift in Sources */,
+				CD2D4C4123A07F3D005B049E /* Comic.swift in Sources */,
+				CD2D4C4323A08534005B049E /* ChapterViewController.swift in Sources */,
+				5F88C0CD239E91B200297359 /* LoginViewController.swift in Sources */,
+				CD2D4C3F23A07E97005B049E /* InfoViewController.swift in Sources */,
+				CDEE422923A0594600C57D87 /* CollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +422,7 @@
 		};
 		5FE05589239C27770000F144 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27D3054075D395D967EC8338 /* Pods-ComicApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -299,6 +440,7 @@
 		};
 		5FE0558A239C27770000F144 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FEF9E3AEDD046981FFBA2E5 /* Pods-ComicApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

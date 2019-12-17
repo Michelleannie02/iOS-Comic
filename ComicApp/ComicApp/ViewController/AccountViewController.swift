@@ -10,7 +10,9 @@ import UIKit
 import Firebase
 
 class AccountViewController: UIViewController {
-    @IBOutlet weak var btnLoginLogout: UIButton!
+   
+   
+    @IBOutlet weak var btnLoginLogout: UIBarButtonItem!
     
     @IBOutlet weak var btnEdit: UIButton!
     
@@ -22,17 +24,13 @@ class AccountViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        setElement()
         setAccount()
-    }
-    func setElement(){
-        Utilities.styleFilledButton(btnLoginLogout)
-        Utilities.styleFilledButton(btnEdit)
     }
     func setAccount(){
         if (UserLocal.UserID != nil) {
             //
-            btnLoginLogout.setTitle("Logout", for: .normal)
+            btnLoginLogout.title = "Logout"
+//            btnLoginLogout.setTitle("Logout", for: .normal)
             let db = Firestore.firestore()
             let ref = db.collection("Users").document(UserLocal.UserID!)
             ref.getDocument { (document, error) in
@@ -48,7 +46,7 @@ class AccountViewController: UIViewController {
         }
         else{
             //
-            btnLoginLogout.setTitle("Login", for: .normal)
+            btnLoginLogout.title = "Login"
             btnEdit.isHidden = true
             self.lblFullName.text = "Guest"
             self.lblGender.text = "Null"

@@ -12,6 +12,8 @@
 		5F88C0CD239E91B200297359 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F88C0CC239E91B200297359 /* LoginViewController.swift */; };
 		5F88C0CF239E91DB00297359 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F88C0CE239E91DB00297359 /* SignUpViewController.swift */; };
 		5F88C0D1239E920E00297359 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F88C0D0239E920E00297359 /* AccountViewController.swift */; };
+		5FB1E9AA23A9298D00316828 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB1E9A923A9298C00316828 /* EditAccountViewController.swift */; };
+		5FB1E9AC23A929BA00316828 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB1E9AB23A929BA00316828 /* ChangePasswordViewController.swift */; };
 		5FDCA811239F9BEC00FEC38E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDCA810239F9BEC00FEC38E /* Utilities.swift */; };
 		5FDCA813239F9C2000FEC38E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDCA812239F9C2000FEC38E /* User.swift */; };
 		5FE05578239C26F30000F144 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE05577239C26F30000F144 /* AppDelegate.swift */; };
@@ -35,6 +37,8 @@
 		5F88C0CC239E91B200297359 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5F88C0CE239E91DB00297359 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		5F88C0D0239E920E00297359 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		5FB1E9A923A9298C00316828 /* EditAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
+		5FB1E9AB23A929BA00316828 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		5FDCA810239F9BEC00FEC38E /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = SOURCE_ROOT; };
 		5FDCA812239F9C2000FEC38E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = ComicApp/Model/User.swift; sourceTree = SOURCE_ROOT; };
 		5FE05574239C26F30000F144 /* ComicApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComicApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,9 +90,11 @@
 		5F88C0C7239E8A7B00297359 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				5F88C0D0239E920E00297359 /* AccountViewController.swift */,
 				5F88C0CC239E91B200297359 /* LoginViewController.swift */,
 				5F88C0CE239E91DB00297359 /* SignUpViewController.swift */,
-				5F88C0D0239E920E00297359 /* AccountViewController.swift */,
+				5FB1E9A923A9298C00316828 /* EditAccountViewController.swift */,
+				5FB1E9AB23A929BA00316828 /* ChangePasswordViewController.swift */,
 				CDEE422623A04CCC00C57D87 /* ReadViewController.swift */,
 				CDEE422823A0594600C57D87 /* CollectionViewCell.swift */,
 				CD2D4C3E23A07E97005B049E /* InfoViewController.swift */,
@@ -276,9 +282,11 @@
 				5FDCA813239F9C2000FEC38E /* User.swift in Sources */,
 				5FE05578239C26F30000F144 /* AppDelegate.swift in Sources */,
 				5FE0557A239C26F30000F144 /* SceneDelegate.swift in Sources */,
+				5FB1E9AC23A929BA00316828 /* ChangePasswordViewController.swift in Sources */,
 				CD2D4C4123A07F3D005B049E /* Comic.swift in Sources */,
 				CD2D4C4323A08534005B049E /* ChapterViewController.swift in Sources */,
 				5F88C0CD239E91B200297359 /* LoginViewController.swift in Sources */,
+				5FB1E9AA23A9298D00316828 /* EditAccountViewController.swift in Sources */,
 				CD2D4C3F23A07E97005B049E /* InfoViewController.swift in Sources */,
 				CDEE422923A0594600C57D87 /* CollectionViewCell.swift in Sources */,
 			);

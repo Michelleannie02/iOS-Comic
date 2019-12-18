@@ -17,7 +17,12 @@ class InfoViewController: UIViewController {
     
     @IBOutlet weak var name: UILabel!
     
-    @IBOutlet weak var chap: UILabel!
+ 
+    @IBAction func readChap(_ sender: Any) {
+        Comic.chap = 0
+    }
+    
+    @IBOutlet weak var chap: UIButton!
     
     func upLoad ()
     {
@@ -44,9 +49,10 @@ class InfoViewController: UIViewController {
             }
             
             for prefix in result.prefixes {
-                self.chap.text = "Chap Mới Nhất: Chap " + String(result.prefixes.count)
+                self.chap.setTitle( "Chap Mới Nhất: Chap " + String(result.prefixes.count), for: .normal)
                 //self.chap.sizeToFit()
                 
+                Comic.nchap = result.prefixes.count
                 
             }
             

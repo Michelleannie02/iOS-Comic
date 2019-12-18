@@ -12,13 +12,42 @@ import FirebaseAuth
 import FirebaseStorage
 
 
-
-class ReadViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class ReadViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var mySearch: UISearchBar!
+    
+    @IBOutlet var tap: UITapGestureRecognizer!
+    
+    @IBAction func tapToHideKeyboard(_ sender: UITapGestureRecognizer) {
+           self.mySearch.resignFirstResponder()
+       }
+       
+       func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+           searchBar.endEditing(true)
+           searchQuery = mySearch.text!
+           tap.isEnabled = false
+           
+           images = [UIImage]()
+           names = [String] ()
+        
+           self.collectionView.reloadData()
+           self.viewDidLoad()
+       }
+       
+       func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+           self.tap.isEnabled = true
+       }
+       
+       func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+           self.tap.isEnabled = false
+       }
+    
+    
     var images = [UIImage]()
     var names = [String] ()
+    var searchQuery = ""
 
     func downImg() {
         let storage = Storage.storage()
@@ -31,6 +60,8 @@ class ReadViewController: UIViewController, UICollectionViewDataSource, UICollec
           for prefix in result.prefixes {
             // The prefixes under storageReference.
             // You may call listAll(completion:) recursively on them.
+            if (self.searchQuery == "" || prefix.name.lowercased().contains(self.searchQuery.lowercased())) {
+            
             prefix.listAll {( res, err) in
             if err != nil {
                 
@@ -51,6 +82,7 @@ class ReadViewController: UIViewController, UICollectionViewDataSource, UICollec
                     self.collectionView.reloadData()
                     
                 }
+            }
             }
             }
           }
@@ -102,7 +134,7 @@ class ReadViewController: UIViewController, UICollectionViewDataSource, UICollec
 
         layout.minimumInteritemSpacing = 3
         layout.minimumLineSpacing = 3
-
+        tap.isEnabled = false
         collectionView.collectionViewLayout = layout
         // Do any additional setup after loading the view.
         

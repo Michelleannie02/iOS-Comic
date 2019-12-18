@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>820611756886-0dahvkj1ghdh1nl1kh5c55hpcvecic67.apps.googleusercontent.com</string>
+	<string>693705437108-7apm668sf37fvd3q8qcn9400688bu737.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.820611756886-0dahvkj1ghdh1nl1kh5c55hpcvecic67</string>
+	<string>com.googleusercontent.apps.693705437108-7apm668sf37fvd3q8qcn9400688bu737</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBTNlgD2m7C9jgfeWCzZo3e5bulyYxlYZY</string>
+	<string>AIzaSyBWvPUZlhehOa5QHEudHw5sWb6kvH_FwKI</string>
 	<key>GCM_SENDER_ID</key>
-	<string>820611756886</string>
+	<string>693705437108</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>ios-75-82.ComicApp</string>
 	<key>PROJECT_ID</key>
-	<string>comicapp-cc69d</string>
+	<string>comicapp-5a8af</string>
 	<key>STORAGE_BUCKET</key>
-	<string>comicapp-cc69d.appspot.com</string>
+	<string>comicapp-5a8af.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:820611756886:ios:86637a0f0642ac84e25cf7</string>
+	<string>1:693705437108:ios:9cd304ff80371a3f7b0ce1</string>
 	<key>DATABASE_URL</key>
-	<string>https://comicapp-cc69d.firebaseio.com</string>
+	<string>https://comicapp-5a8af.firebaseio.com</string>
 </dict>
 </plist>

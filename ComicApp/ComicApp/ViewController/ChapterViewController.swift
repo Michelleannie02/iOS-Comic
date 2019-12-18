@@ -122,7 +122,7 @@ class ChapterViewController: UIViewController {
         if Comic.chap! <= 0 {
             prevButton.isEnabled = false
         }
-        if Comic.chap! >= Comic.nchap! {
+        if Comic.chap! >= Comic.nchap! - 1 {
             nextButton.isEnabled = false
         }
     }

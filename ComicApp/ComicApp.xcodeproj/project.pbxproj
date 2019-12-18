@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5F02595B239FD7A40023FA30 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F02595A239FD7A40023FA30 /* TabBarController.swift */; };
-		5F88C0C2239E855100297359 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F88C0C1239E855000297359 /* GoogleService-Info.plist */; };
 		5F88C0CD239E91B200297359 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F88C0CC239E91B200297359 /* LoginViewController.swift */; };
 		5F88C0CF239E91DB00297359 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F88C0CE239E91DB00297359 /* SignUpViewController.swift */; };
 		5F88C0D1239E920E00297359 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F88C0D0239E920E00297359 /* AccountViewController.swift */; };
@@ -27,6 +26,7 @@
 		CD2D4C4123A07F3D005B049E /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D4C4023A07F3D005B049E /* Comic.swift */; };
 		CD2D4C4323A08534005B049E /* ChapterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D4C4223A08534005B049E /* ChapterViewController.swift */; };
 		CDE8CA7C23A9B44000ED87F1 /* ShowChapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE8CA7B23A9B44000ED87F1 /* ShowChapViewController.swift */; };
+		CDE8CA7E23A9E6E800ED87F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDE8CA7D23A9E6E800ED87F1 /* GoogleService-Info.plist */; };
 		CDEE422723A04CCC00C57D87 /* ReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE422623A04CCC00C57D87 /* ReadViewController.swift */; };
 		CDEE422923A0594600C57D87 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE422823A0594600C57D87 /* CollectionViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -34,7 +34,6 @@
 /* Begin PBXFileReference section */
 		27D3054075D395D967EC8338 /* Pods-ComicApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComicApp.debug.xcconfig"; path = "Target Support Files/Pods-ComicApp/Pods-ComicApp.debug.xcconfig"; sourceTree = "<group>"; };
 		5F02595A239FD7A40023FA30 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		5F88C0C1239E855000297359 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5F88C0CC239E91B200297359 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5F88C0CE239E91DB00297359 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		5F88C0D0239E920E00297359 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +55,7 @@
 		CD2D4C4023A07F3D005B049E /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
 		CD2D4C4223A08534005B049E /* ChapterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterViewController.swift; sourceTree = "<group>"; };
 		CDE8CA7B23A9B44000ED87F1 /* ShowChapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowChapViewController.swift; sourceTree = "<group>"; };
+		CDE8CA7D23A9E6E800ED87F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CDEE422623A04CCC00C57D87 /* ReadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadViewController.swift; sourceTree = "<group>"; };
 		CDEE422823A0594600C57D87 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,7 +138,7 @@
 				5FE05580239C27760000F144 /* Assets.xcassets */,
 				5FE05582239C27770000F144 /* LaunchScreen.storyboard */,
 				5FE05585239C27770000F144 /* Info.plist */,
-				5F88C0C1239E855000297359 /* GoogleService-Info.plist */,
+				CDE8CA7D23A9E6E800ED87F1 /* GoogleService-Info.plist */,
 			);
 			path = ComicApp;
 			sourceTree = "<group>";
@@ -221,7 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FE05584239C27770000F144 /* LaunchScreen.storyboard in Resources */,
-				5F88C0C2239E855100297359 /* GoogleService-Info.plist in Resources */,
+				CDE8CA7E23A9E6E800ED87F1 /* GoogleService-Info.plist in Resources */,
 				5FE05581239C27760000F144 /* Assets.xcassets in Resources */,
 				5FE0557F239C26F30000F144 /* Main.storyboard in Resources */,
 			);

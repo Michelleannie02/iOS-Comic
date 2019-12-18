@@ -11,4 +11,6 @@ import UIKit
 
 class Comic {
     static var name : String?
+    static var chap : Int?
+    static var nchap : Int?
 }

@@ -26,6 +26,7 @@
 		CD2D4C3F23A07E97005B049E /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D4C3E23A07E97005B049E /* InfoViewController.swift */; };
 		CD2D4C4123A07F3D005B049E /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D4C4023A07F3D005B049E /* Comic.swift */; };
 		CD2D4C4323A08534005B049E /* ChapterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D4C4223A08534005B049E /* ChapterViewController.swift */; };
+		CDE8CA7C23A9B44000ED87F1 /* ShowChapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE8CA7B23A9B44000ED87F1 /* ShowChapViewController.swift */; };
 		CDEE422723A04CCC00C57D87 /* ReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE422623A04CCC00C57D87 /* ReadViewController.swift */; };
 		CDEE422923A0594600C57D87 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE422823A0594600C57D87 /* CollectionViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -54,6 +55,7 @@
 		CD2D4C3E23A07E97005B049E /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		CD2D4C4023A07F3D005B049E /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
 		CD2D4C4223A08534005B049E /* ChapterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterViewController.swift; sourceTree = "<group>"; };
+		CDE8CA7B23A9B44000ED87F1 /* ShowChapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowChapViewController.swift; sourceTree = "<group>"; };
 		CDEE422623A04CCC00C57D87 /* ReadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadViewController.swift; sourceTree = "<group>"; };
 		CDEE422823A0594600C57D87 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +101,7 @@
 				CDEE422823A0594600C57D87 /* CollectionViewCell.swift */,
 				CD2D4C3E23A07E97005B049E /* InfoViewController.swift */,
 				CD2D4C4223A08534005B049E /* ChapterViewController.swift */,
+				CDE8CA7B23A9B44000ED87F1 /* ShowChapViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				5F88C0CF239E91DB00297359 /* SignUpViewController.swift in Sources */,
 				5FE0557C239C26F30000F144 /* ViewController.swift in Sources */,
 				5FDCA811239F9BEC00FEC38E /* Utilities.swift in Sources */,
+				CDE8CA7C23A9B44000ED87F1 /* ShowChapViewController.swift in Sources */,
 				5F02595B239FD7A40023FA30 /* TabBarController.swift in Sources */,
 				CDEE422723A04CCC00C57D87 /* ReadViewController.swift in Sources */,
 				5F88C0D1239E920E00297359 /* AccountViewController.swift in Sources */,

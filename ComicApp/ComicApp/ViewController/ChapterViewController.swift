@@ -13,11 +13,34 @@ import FirebaseStorage
 
 class ChapterViewController: UIViewController {
 
+    @IBOutlet weak var toolChap: UIToolbar!
+    
+
+    @IBOutlet weak var prevButton: UIBarButtonItem!
+    
+    @IBOutlet weak var nextButton: UIBarButtonItem!
+    
+    @IBAction func tapToShowTools(_ sender: UITapGestureRecognizer) {
+        toolChap.isHidden = !toolChap.isHidden
+    }
+    
+    
     @IBOutlet weak var chap: UINavigationItem!
     
     var images = [UIImage]()
     
     @IBOutlet weak var read: UIScrollView!
+    
+    @IBAction func prevChap(_ sender: Any) {
+        Comic.chap = Comic.chap! - 1
+        self.viewDidLoad()
+        
+    }
+    
+    @IBAction func nextChap(_ sender: Any) {
+        Comic.chap = Comic.chap! + 1
+        self.viewDidLoad()
+    }
     
     func downLoad(_ index: Int) {
         var path = ""
@@ -89,10 +112,27 @@ class ChapterViewController: UIViewController {
         
     }
     
+    func Init() {
+        prevButton.isEnabled = true
+        nextButton.isEnabled = true
+        
+        print(Comic.chap!)
+        print(Comic.nchap!)
+        
+        if Comic.chap! <= 0 {
+            prevButton.isEnabled = false
+        }
+        if Comic.chap! >= Comic.nchap! {
+            nextButton.isEnabled = false
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        Init()
         chap.title = "Chap \(Comic.chap! + 1)"
         downLoad(Comic.chap!)
+        toolChap.isHidden = true;
     }
     
     override func viewDidLayoutSubviews() {

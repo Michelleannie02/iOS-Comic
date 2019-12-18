@@ -194,23 +194,57 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0GY-sq-JQm">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <gestureRecognizers/>
                                 <viewLayoutGuide key="contentLayoutGuide" id="RSo-kw-Qr6"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="jDz-gp-BEt"/>
                                 <connections>
                                     <outlet property="delegate" destination="ltZ-gh-TBM" id="62l-PM-GIP"/>
                                 </connections>
                             </scrollView>
+                            <toolbar hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3hc-P8-bjy">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <items>
+                                    <barButtonItem title="PREV" image="arrowshape.turn.up.left.fill" catalog="system" id="k2Z-3m-BpD">
+                                        <connections>
+                                            <action selector="prevChap:" destination="ltZ-gh-TBM" id="4nY-EB-Pba"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="wQk-Cd-uJw"/>
+                                    <barButtonItem title="NEXT" image="arrowshape.turn.up.right.fill" catalog="system" id="X0C-me-aEB">
+                                        <connections>
+                                            <action selector="nextChap:" destination="ltZ-gh-TBM" id="5wT-K2-yMQ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="irO-fg-MhE" firstAttribute="bottom" secondItem="3hc-P8-bjy" secondAttribute="bottom" id="aKf-rM-U20"/>
+                            <constraint firstItem="3hc-P8-bjy" firstAttribute="width" secondItem="yx1-Z7-8D1" secondAttribute="width" id="dDD-Qq-mo2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="irO-fg-MhE"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="6BU-7N-Bh0" appends="YES" id="Wr8-Z2-cDR"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="ud0-Mw-Xtm"/>
                     <connections>
                         <outlet property="chap" destination="ud0-Mw-Xtm" id="pHV-uX-kVy"/>
+                        <outlet property="nextButton" destination="X0C-me-aEB" id="oId-2C-Lxi"/>
+                        <outlet property="prevButton" destination="k2Z-3m-BpD" id="zhI-3G-N9v"/>
                         <outlet property="read" destination="0GY-sq-JQm" id="aro-Ba-thA"/>
+                        <outlet property="toolChap" destination="3hc-P8-bjy" id="zZT-Au-zfb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gL5-Um-eBY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="6BU-7N-Bh0">
+                    <connections>
+                        <action selector="tapToShowTools:" destination="ltZ-gh-TBM" id="WeZ-Kd-v8l"/>
+                        <outlet property="delegate" destination="ltZ-gh-TBM" id="8oc-Xj-jd5"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3224.6376811594205" y="618.75"/>
         </scene>
@@ -991,6 +1025,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrowshape.turn.up.left.fill" catalog="system" width="64" height="52"/>
+        <image name="arrowshape.turn.up.right.fill" catalog="system" width="64" height="52"/>
         <image name="camera.viewfinder" catalog="system" width="64" height="56"/>
         <image name="circle" catalog="system" width="64" height="60"/>
         <image name="globe" catalog="system" width="64" height="60"/>

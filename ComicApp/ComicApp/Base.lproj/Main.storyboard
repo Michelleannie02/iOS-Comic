@@ -81,7 +81,9 @@
                             <outletCollection property="gestureRecognizers" destination="LhW-ya-Rw7" appends="YES" id="AWj-t4-6oN"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="My Comic" id="yQF-ut-xJk"/>
+                    <navigationItem key="navigationItem" title="My Comic" id="yQF-ut-xJk">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="fhA-k6-poz"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="OOS-Z9-8hK" id="kcE-Kj-nFO"/>
                         <outlet property="mySearch" destination="7Pa-sF-hWd" id="LlS-NU-6Ht"/>
@@ -124,7 +126,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Lxs-lM-z0f"/>
                     </view>
-                    <navigationItem key="navigationItem" title="List Chap" id="zMp-dh-IoS"/>
+                    <navigationItem key="navigationItem" title="List Chap" id="zMp-dh-IoS">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="yQe-yk-oKd"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="JEU-MC-Ro3" id="QLw-1A-Nfk"/>
                         <segue destination="ltZ-gh-TBM" kind="show" identifier="showChap" id="y0v-nh-iU3"/>
@@ -153,7 +157,7 @@
                                 </connections>
                             </scrollView>
                             <toolbar hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3hc-P8-bjy">
-                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <items>
                                     <barButtonItem title="PREV" image="arrowshape.turn.up.left.fill" catalog="system" id="k2Z-3m-BpD">
                                         <connections>
@@ -1047,7 +1051,7 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rOV-O3-13c">
                                                         <rect key="frame" x="91.666666666666686" y="-15" width="183" height="40"/>
-                                                        <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="Rx6-89-xKh"/>
                                                         </constraints>
@@ -1084,7 +1088,7 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVK-2R-dDc">
                                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                                        <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="60" id="yTl-eG-D8x"/>
                                                         </constraints>
@@ -1095,7 +1099,7 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O1G-8U-Jge">
                                                         <rect key="frame" x="96" y="0.0" width="148" height="60"/>
-                                                        <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="START READ">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1163,7 +1167,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bAM-oN-xRX"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Infomation" id="0kc-Aj-lCI"/>
+                    <navigationItem key="navigationItem" title="Infomation" id="0kc-Aj-lCI">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="Eju-K4-9KY"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="chap" destination="rOV-O3-13c" id="N8T-9T-Wmm"/>
                         <outlet property="cmtView" destination="GSV-BN-dhD" id="C6I-ij-JmV"/>
@@ -1194,6 +1200,6 @@
         <image name="uiwindow.split.2x1" catalog="system" width="64" height="46"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zi9-gS-wqc"/>
+        <segue reference="y0v-nh-iU3"/>
     </inferredMetricsTieBreakers>
 </document>

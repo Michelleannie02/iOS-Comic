@@ -19,7 +19,7 @@ class ShowChapViewController: UIViewController, UITableViewDelegate, UITableView
             return
         }
         for i in 1...Comic.nchap! {
-            chap.append(i)
+            chap.append(Comic.nchap! - i + 1)
         }
     }
         // don't forget to hook this up from the storyboard
@@ -61,9 +61,8 @@ class ShowChapViewController: UIViewController, UITableViewDelegate, UITableView
 
         // method to run when table view cell is tapped
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            Comic.chap = indexPath.row
+            Comic.chap = Comic.nchap! - indexPath.row - 1
             performSegue(withIdentifier: "showChap", sender: self)
-            
         }
    
     }

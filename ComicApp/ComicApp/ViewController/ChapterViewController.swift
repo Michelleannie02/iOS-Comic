@@ -119,9 +119,6 @@ class ChapterViewController: UIViewController, UIScrollViewDelegate {
         prevButton.isEnabled = true
         nextButton.isEnabled = true
         
-        print(Comic.chap!)
-        print(Comic.nchap!)
-        
         if Comic.chap! <= 0 {
             prevButton.isEnabled = false
         }

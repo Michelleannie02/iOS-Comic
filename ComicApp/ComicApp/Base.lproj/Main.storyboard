@@ -16,21 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Enter Name" translatesAutoresizingMaskIntoConstraints="NO" id="7Pa-sF-hWd">
-                                <rect key="frame" x="0.0" y="100" width="414" height="56"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <scopeButtonTitles>
-                                    <string>Title</string>
-                                    <string>Title</string>
-                                </scopeButtonTitles>
-                                <connections>
-                                    <outlet property="delegate" destination="9s8-bp-ahu" id="exl-Il-tmu"/>
-                                </connections>
-                            </searchBar>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OOS-Z9-8hK">
-                                <rect key="frame" x="0.0" y="163" width="414" height="650"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OOS-Z9-8hK">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" red="0.79216223959999998" green="0.79214721919999997" blue="0.79215735200000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zaW-KR-aa0">
                                     <size key="itemSize" width="296" height="307"/>
@@ -73,9 +60,27 @@
                                     <outlet property="delegate" destination="9s8-bp-ahu" id="pDD-tb-cy1"/>
                                 </connections>
                             </collectionView>
+                            <searchBar hidden="YES" contentMode="redraw" fixedFrame="YES" placeholder="Enter Name" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Pa-sF-hWd">
+                                <rect key="frame" x="0.0" y="107" width="414" height="56"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                                <connections>
+                                    <outlet property="delegate" destination="9s8-bp-ahu" id="exl-Il-tmu"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="OOS-Z9-8hK" firstAttribute="leading" secondItem="Qcd-H7-Bpy" secondAttribute="leading" id="5ZV-wr-2UR"/>
+                            <constraint firstItem="OOS-Z9-8hK" firstAttribute="bottom" secondItem="Qcd-H7-Bpy" secondAttribute="bottom" id="Hsu-5m-LcS"/>
+                            <constraint firstItem="OOS-Z9-8hK" firstAttribute="trailing" secondItem="Qcd-H7-Bpy" secondAttribute="trailing" id="Uhe-jI-7tj"/>
+                            <constraint firstItem="OOS-Z9-8hK" firstAttribute="top" secondItem="Qcd-H7-Bpy" secondAttribute="top" id="p5Y-nO-Yg4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Qcd-H7-Bpy"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="LhW-ya-Rw7" appends="YES" id="AWj-t4-6oN"/>
@@ -83,10 +88,16 @@
                     </view>
                     <navigationItem key="navigationItem" title="My Comic" id="yQF-ut-xJk">
                         <barButtonItem key="backBarButtonItem" title="Back" id="fhA-k6-poz"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="kly-Sv-xfN">
+                            <connections>
+                                <action selector="showSearchBar:" destination="9s8-bp-ahu" id="66W-K4-DGr"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="OOS-Z9-8hK" id="kcE-Kj-nFO"/>
                         <outlet property="mySearch" destination="7Pa-sF-hWd" id="LlS-NU-6Ht"/>
+                        <outlet property="searchButton" destination="kly-Sv-xfN" id="XTp-L7-fIH"/>
                         <outlet property="tap" destination="LhW-ya-Rw7" id="fQU-mM-2ag"/>
                     </connections>
                 </viewController>

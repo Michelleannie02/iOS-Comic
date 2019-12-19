@@ -20,6 +20,17 @@ class ReadViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     @IBOutlet var tap: UITapGestureRecognizer!
     
+    @IBOutlet weak var searchButton: UIBarButtonItem!
+    
+    @IBAction func showSearchBar(_ sender: Any) {
+        
+        mySearch.isHidden = false
+        
+        mySearch.sizeToFit()
+        self.navigationItem.titleView = mySearch
+        self.navigationItem.rightBarButtonItem = .none
+    }
+    
     @IBAction func tapToHideKeyboard(_ sender: UITapGestureRecognizer) {
            self.mySearch.resignFirstResponder()
        }
@@ -86,10 +97,7 @@ class ReadViewController: UIViewController, UICollectionViewDataSource, UICollec
             }
             }
           }
-          for item in result.items {
-            // The items under storageReference.
-            
-            }
+          //for item in result.items {}
         
         }
     }
@@ -141,7 +149,7 @@ class ReadViewController: UIViewController, UICollectionViewDataSource, UICollec
         tap.isEnabled = false
         collectionView.collectionViewLayout = layout
         
-        //mySearch.searchTextField.backgroundColor = .white
+    //mySearch.searchTextField.backgroundColor = .white
         
     }
 

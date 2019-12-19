@@ -104,14 +104,18 @@ class ReadViewController: UIViewController, UICollectionViewDataSource, UICollec
 
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
         cell.label.text = self.names[indexPath.item]
-        //cell.label.adjustsFontSizeToFitWidth = true
-        cell.label.sizeToFit()
-        //cell.label.invalidateIntrinsicContentSize()
+        cell.label.textAlignment = .center
         
         cell.imgView.image = self.images[indexPath.item]
-        cell.imgView.contentMode = .scaleAspectFit
-        let width = UIScreen.main.bounds.width/2 - 2
-        let height = width * 1.3
+        cell.imgView.contentMode = .scaleAspectFill
+        cell.imgView.clipsToBounds = true
+        cell.imgView.layer.cornerRadius = 15
+        
+        cell.clipsToBounds = true
+        cell.layer.cornerRadius = 15
+        
+        let width = UIScreen.main.bounds.width/2 - 9
+        let height = width * 1.25
         cell.imgView.frame = CGRect(x: 0,y: 0,width: width, height: height)
         cell.contentView.addSubview(cell.imgView)
         return cell
@@ -126,17 +130,18 @@ class ReadViewController: UIViewController, UICollectionViewDataSource, UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
         downImg()
-        let width = UIScreen.main.bounds.width/2 - 2
-        let height = width * 1.5
+        let width = UIScreen.main.bounds.width/2 - 9
+        let height = width * 1.65
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         layout.itemSize = CGSize(width: width, height: height)
 
-        layout.minimumInteritemSpacing = 3
-        layout.minimumLineSpacing = 3
+        layout.minimumInteritemSpacing = 10
+        layout.minimumLineSpacing = 15
         tap.isEnabled = false
         collectionView.collectionViewLayout = layout
-        // Do any additional setup after loading the view.
+        
+        //mySearch.searchTextField.backgroundColor = .white
         
     }
 

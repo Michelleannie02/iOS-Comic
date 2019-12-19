@@ -17,7 +17,13 @@ class InfoViewController: UIViewController {
     
     @IBOutlet weak var name: UILabel!
     
- 
+    @IBOutlet weak var infView: UIView!
+    @IBOutlet weak var cmtView: UIView!
+    
+    @IBOutlet weak var likeButton: UIButton!
+    
+    @IBOutlet weak var readButton: UIButton!
+    
     @IBAction func readChap(_ sender: Any) {
         Comic.chap = 0
     }
@@ -44,13 +50,14 @@ class InfoViewController: UIViewController {
                     
                     let image = UIImage(data: data!)
                     self.imgView.image = image
+                    self.imgView.contentMode = .scaleAspectFill
                 }
                        
             }
             
-            for prefix in result.prefixes {
+            for _ in result.prefixes {
+                
                 self.chap.setTitle( "Chap Mới Nhất: Chap " + String(result.prefixes.count), for: .normal)
-                //self.chap.sizeToFit()
                 
                 Comic.nchap = result.prefixes.count
                 
@@ -64,7 +71,21 @@ class InfoViewController: UIViewController {
         super.viewDidLoad()
         upLoad()
         name.text = Comic.name
-        //name.sizeToFit()
+        
+        likeButton.layer.cornerRadius = 30
+        likeButton.clipsToBounds = true
+    
+        readButton.layer.cornerRadius = 30
+        readButton.clipsToBounds = true
+        
+        
+        infView.layer.cornerRadius = 30
+        //infView.layer.borderWidth = 2
+        //infView.layer.borderColor = UIColor.black.cgColor
+        cmtView.layer.cornerRadius = 30
+
+        chap.layer.cornerRadius = 20
+        chap.clipsToBounds = true
         
     }
     

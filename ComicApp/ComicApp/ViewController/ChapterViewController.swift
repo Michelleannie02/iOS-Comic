@@ -11,7 +11,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseStorage
 
-class ChapterViewController: UIViewController {
+class ChapterViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var toolChap: UIToolbar!
     
@@ -24,6 +24,9 @@ class ChapterViewController: UIViewController {
         toolChap.isHidden = !toolChap.isHidden
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        toolChap.isHidden = true
+    }
     
     @IBOutlet weak var chap: UINavigationItem!
     

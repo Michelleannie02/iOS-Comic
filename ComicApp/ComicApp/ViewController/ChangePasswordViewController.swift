@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ChangePasswordViewController: UIViewController {
     @IBOutlet weak var txtCurrentPassword: UITextField!
@@ -47,14 +48,26 @@ class ChangePasswordViewController: UIViewController {
     @IBAction func Send(_ sender: Any) {
         let error = validateFields()
         if error == nil{
-            showError("Successful!")
-            txtNewPassword.text = ""
-            txtCurrentPassword.text = ""
-            txtRetypeNewPassword.text = ""
-            
-            //send
-            
-            
+            let fAuth = Auth.auth()
+                fAuth.signIn(withEmail: UserLocal.localAccount.email!, password: txtCurrentPassword.text!.trimmingCharacters(in: .whitespacesAndNewlines)) { (result, error) in
+                if error != nil {
+                    self.showError(error!.localizedDescription)
+                }
+                else {
+                    fAuth.currentUser?.updatePassword(to: self.txtNewPassword.text!.trimmingCharacters(in: .whitespacesAndNewlines)) { (error) in
+                        if error != nil{
+                            print(error!)
+                            self.showError("Faild")
+                        }
+                        else{
+                            self.self.showError("Successful!")
+                            self.txtNewPassword.text = ""
+                            self.txtCurrentPassword.text = ""
+                            self.txtRetypeNewPassword.text = ""
+                        }
+                    }
+                }
+            }            
         }
         else{
             showError(error!)

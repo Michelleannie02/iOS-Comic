@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5F02595B239FD7A40023FA30 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F02595A239FD7A40023FA30 /* TabBarController.swift */; };
+		5F0B6A2323AC910B0066B78E /* RealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B6A2223AC910B0066B78E /* RealmObject.swift */; };
 		5F88C0CD239E91B200297359 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F88C0CC239E91B200297359 /* LoginViewController.swift */; };
 		5F88C0CF239E91DB00297359 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F88C0CE239E91DB00297359 /* SignUpViewController.swift */; };
 		5F88C0D1239E920E00297359 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F88C0D0239E920E00297359 /* AccountViewController.swift */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		27D3054075D395D967EC8338 /* Pods-ComicApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComicApp.debug.xcconfig"; path = "Target Support Files/Pods-ComicApp/Pods-ComicApp.debug.xcconfig"; sourceTree = "<group>"; };
 		5F02595A239FD7A40023FA30 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		5F0B6A2223AC910B0066B78E /* RealmObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmObject.swift; sourceTree = "<group>"; };
 		5F88C0CC239E91B200297359 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5F88C0CE239E91DB00297359 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		5F88C0D0239E920E00297359 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			children = (
 				5FDCA812239F9C2000FEC38E /* User.swift */,
 				CD2D4C4023A07F3D005B049E /* Comic.swift */,
+				5F0B6A2223AC910B0066B78E /* RealmObject.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 			files = (
 				5F88C0CF239E91DB00297359 /* SignUpViewController.swift in Sources */,
 				5FE0557C239C26F30000F144 /* ViewController.swift in Sources */,
+				5F0B6A2323AC910B0066B78E /* RealmObject.swift in Sources */,
 				5FDCA811239F9BEC00FEC38E /* Utilities.swift in Sources */,
 				CDE8CA7C23A9B44000ED87F1 /* ShowChapViewController.swift in Sources */,
 				5F02595B239FD7A40023FA30 /* TabBarController.swift in Sources */,

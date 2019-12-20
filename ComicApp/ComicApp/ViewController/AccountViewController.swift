@@ -30,9 +30,9 @@ class AccountViewController: UIViewController {
     }
     func setAccount(){
         btnLoginLogout.title = "Login"
-        //btnEdit.isHidden = true
-        //btnChangePassword.isHidden = true
-        self.lblFullName.text = UserLocal.localAccount.name
+        btnEdit.isHidden = true
+        btnChangePassword.isHidden = true
+        self.lblFullName.text = UserLocal.localAccount.fullName
         self.lblGender.text = UserLocal.localAccount.gender
         self.lblBirthday.text = UserLocal.localAccount.birthday
         self.lblEmail.text = UserLocal.localAccount.email
@@ -41,13 +41,14 @@ class AccountViewController: UIViewController {
         }
         else{
             self.imgAvatar.contentMode = .scaleAspectFill
+            self.imgAvatar.layer.cornerRadius = 100
             self.imgAvatar.image = UIImage(data: UserLocal.localAccount.avatar!)
         }
-//        if (UserLocal.UserID != nil) {
-//            //
-//            btnLoginLogout.title = "Logout"
-//            btnEdit.isHidden = false
-//            btnChangePassword.isHidden = false
+        if (UserLocal.UserID != nil) {
+            //
+            btnLoginLogout.title = "Logout"
+            btnEdit.isHidden = false
+            btnChangePassword.isHidden = false
 //            let db = Firestore.firestore()
 //            let ref = db.collection("Users").document(UserLocal.UserID!)
 //            ref.getDocument { (document, error) in
@@ -68,7 +69,7 @@ class AccountViewController: UIViewController {
 //            self.lblGender.text = "Null"
 //            self.lblBirthday.text = "Null"
 //            self.lblEmail.text = "Null"
-//        }
+        }
     }
 
 }

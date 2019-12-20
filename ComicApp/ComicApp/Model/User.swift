@@ -13,78 +13,156 @@ import Firebase
 
 class UserLocal{
     static var UserID: String?
-    static var localAccount = LUser()
+    static var localAccount = User()
     static func downAccount(){
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         let db = Firestore.firestore()
+        let realm = try! Realm()
+        if let user = realm.objects(LUser.self).first{
+            UserLocal.UserID = user.userID
+            let ref = db.collection("Users").document(UserLocal.UserID!)
+            ref.getDocument { (document, error) in
+                if error != nil{
+                    if let user = realm.objects(LUser.self).first{
+                        UserLocal.localAccount.fullName = user.name
+                        UserLocal.localAccount.gender = user.gender
+                        UserLocal.localAccount.birthday = user.birthday
+                        UserLocal.localAccount.email = user.email
+                        UserLocal.localAccount.avatar = user.avatar
+                    }
+                    return
+                } else{
+                    if let document = document, document.exists {
+                        let data = document.data()
+                        UserLocal.localAccount.fullName = data?["fullName"] as? String
+                        UserLocal.localAccount.gender = data?["gender"] as? String
+                        UserLocal.localAccount.birthday = data?["birthday"] as? String
+                        UserLocal.localAccount.email = data?["email"] as? String
+                        if data?["avatarUrl"] as? String == "" {
+                            UserLocal.localAccount.avatar = nil
+                            saveAccount()
+                        }
+                        else {
+                            let storage = Storage.storage()
+                            let storageRef = storage.reference().child("User/" + UserLocal.UserID! + ".jpg")
+
+                            // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+                            storageRef.getData(maxSize: 7 * 1024 * 1024) { data, error in
+                                if error == nil {
+                                    UserLocal.localAccount.avatar = data!
+                                    saveAccount()
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        else{
+            if UserLocal.UserID != nil{
+                let ref = db.collection("Users").document(UserLocal.UserID!)
+                ref.getDocument { (document, error) in
+                    if error != nil{
+                        //error
+                    } else{
+                        if let document = document, document.exists {
+                            let data = document.data()
+                            UserLocal.localAccount.fullName = data?["fullName"] as? String
+                            UserLocal.localAccount.gender = data?["gender"] as? String
+                            UserLocal.localAccount.birthday = data?["birthday"] as? String
+                            UserLocal.localAccount.email = data?["email"] as? String
+                            if data?["avatarUrl"] as? String == "" {
+                                UserLocal.localAccount.avatar = nil
+                                saveAccount()
+                            }
+                            else {
+                                let storage = Storage.storage()
+                                let storageRef = storage.reference().child("User/" + UserLocal.UserID! + ".jpg")
+
+                                // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+                                storageRef.getData(maxSize: 7 * 1024 * 1024) { data, error in
+                                    if error == nil {
+                                        UserLocal.localAccount.avatar = data
+                                        saveAccount()
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else{
+                UserLocal.localAccount = User()
+            }
+        }
+        
         if UserLocal.UserID == nil{
             let realm = try! Realm()
             if let user = realm.objects(LUser.self).first{
-               localAccount.name = user.name
-               localAccount.birthday = user.birthday
-               localAccount.gender = user.gender
-               localAccount.email = user.email
-               localAccount.avatar = user.avatar
+                localAccount.fullName = user.name
+                localAccount.birthday = user.birthday
+                localAccount.gender = user.gender
+                localAccount.email = user.email
+                localAccount.avatar = user.avatar
             }
         }
         else{
             let ref = db.collection("Users").document(UserLocal.UserID!)
             ref.getDocument { (document, error) in
-               if error != nil{
+                if error != nil{
                    //error
                   
-               } else{
-                   if let document = document, document.exists {
-                       let data = document.data()
-                       localAccount.name = data?["fullName"] as? String
-                       localAccount.gender = data?["gender"] as? String
-                       localAccount.birthday = data?["birthday"] as? String
-                   }
+                } else{
+                    if let document = document, document.exists {
+                        let data = document.data()
+                        localAccount.fullName = data?["fullName"] as? String
+                        localAccount.gender = data?["gender"] as? String
+                        localAccount.birthday = data?["birthday"] as? String
+                        localAccount.email = data?["email"] as? String
+                        if data?["avatarUrl"] as? String != nil {
+                            
+                            //localAccount.avatar =
+                        }
+                        
+                    }
                    
-                   //load email va avata tu firebase
-               }
-           }
+                }
+            }
         }
     }
     static func saveAccount(){
         let realm = try! Realm()
-        //save User id
-        
-        
-        //
-        
-        
-        
+
         if let user = realm.objects(LUser.self).first{
             try! realm.write {
-                user.name = localAccount.name
-                user.gender = localAccount.gender
+                user.avatar = localAccount.avatar
                 user.birthday = localAccount.birthday
                 user.email = localAccount.email
-                user.avatar = localAccount.avatar
+                user.gender = localAccount.gender
+                user.name = localAccount.fullName
+//                realm.delete(user)
+//                realm.add(LUser(value: ["name": localAccount.fullName ?? "","email": localAccount.email ?? "","gender":localAccount.gender ?? "","birthday":localAccount.birthday ?? "","avatar":localAccount.avatar ?? Data() ,"userID":UserLocal.UserID ?? ""]))
             }
         } else{
             try! realm.write {
-                realm.add(localAccount)
+                realm.add(LUser(value: ["name": localAccount.fullName ?? "","email": localAccount.email ?? "","gender":localAccount.gender ?? "","birthday":localAccount.birthday ?? "","avatar":localAccount.avatar ?? Data() ,"userID":UserLocal.UserID ?? ""]))
             }
         }
     }
+    static func deleteAccount(){
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(realm.objects(LUser.self))
+        }
+    }
+    
 }
-//class User:NSObject {
-//    var email: String?
-//    var fullName: String?
-//    init(Email: String,name: String){
-//        self.email = Email
-//        self.fullName = name
-//    }
-//    func toAnyObjects() -> Any {
-//        return ["email":email,"fullName":fullName]
-//    }
-//}
-class LUser: Object {
-    @objc dynamic var name : String? = "Guest"
-    @objc dynamic var gender :String? = "Other"
-    @objc dynamic var email :String? = "guest@gmail.com"
-    @objc dynamic var birthday : String? = "01/01/2000"
-    @objc dynamic var avatar : Data? = nil
+class User:NSObject {
+    var email: String? = "Guest"
+    var fullName: String? = "Other"
+    var gender: String? = "guest@gmail.com"
+    var birthday: String? = "01/01/2000"
+    var avatar: Data? = nil
 }
+
 

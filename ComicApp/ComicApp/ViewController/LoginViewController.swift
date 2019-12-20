@@ -24,6 +24,7 @@ class LoginViewController: UIViewController {
     }
     func setElement(){
         UserLocal.UserID = nil
+        UserLocal.deleteAccount()
         lblError.alpha = 0
         Utilities.styleFilledButton(btnLogin)
         Utilities.styleHellowButton(btnSignUp)
@@ -49,9 +50,7 @@ class LoginViewController: UIViewController {
                 else {
                     UserLocal.UserID = result!.user.uid
                     self.transitionToHome()
-                    
                 }
-                
             }
         }
     }

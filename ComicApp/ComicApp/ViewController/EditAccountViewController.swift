@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class EditAccountViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -28,17 +29,31 @@ class EditAccountViewController: UIViewController, UIImagePickerControllerDelega
     }
     func setElement(){
 
-        lblError.alpha = 0
-        gender = "Other"
-        txtBirthday.text = UserLocal.localAccount.birthday
-        txtName.text = UserLocal.localAccount.name
-        if UserLocal.localAccount.avatar != nil{
-            imgAvatar.contentMode = .scaleAspectFill
-            imgAvatar.image = UIImage(data: UserLocal.localAccount.avatar!)
+            lblError.alpha = 0
+            gender = UserLocal.localAccount.gender
+            switch gender {
+            case "Other":
+                SelectGender(btnOther)
+                break;
+            case "Male":
+                SelectGender(btnMale)
+                break;
+            case "Female":
+                SelectGender(btnFemale)
+                break;
+            default:
+                SelectGender(btnOther)
+            }
+            txtBirthday.text = UserLocal.localAccount.birthday
+            txtName.text = UserLocal.localAccount.fullName
+            imgAvatar.layer.cornerRadius = 100
+            if UserLocal.localAccount.avatar != nil{
+                imgAvatar.contentMode = .scaleAspectFill
+                imgAvatar.image = UIImage(data: UserLocal.localAccount.avatar!)
+            }
+            //load gender
+            
         }
-        //load gender
-        
-    }
     
 
     @IBAction func ChangeAvatar(_ sender: Any) {
@@ -69,18 +84,27 @@ class EditAccountViewController: UIViewController, UIImagePickerControllerDelega
             lblError.alpha = 1
         }
         else{
-            //update firebase
-            
-            
-            
-            //set edit
-            
-            UserLocal.localAccount.name = txtName.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-            UserLocal.localAccount.birthday = txtBirthday.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-            UserLocal.localAccount.gender = gender
-            UserLocal.localAccount.avatar = imageAvatar.pngData() ?? nil
-            UserLocal.saveAccount()
-            self.transitionToHome()
+            let db = Firestore.firestore()
+            db.collection("Users").document(UserLocal.UserID!).updateData(["fullName":txtName.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "Error","birthday":txtBirthday.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "01/01/2000","gender":gender ?? "Other"])
+            if let data = imageAvatar.pngData(){
+                let storage = Storage.storage()
+                let storageRef = storage.reference()
+                let riversRef = storageRef.child("User/" + UserLocal.UserID! + ".jpg")
+                riversRef.putData(data, metadata: nil) { (metadata, error) in
+                    if metadata != nil {
+                        riversRef.downloadURL { (url, error) in
+                            if url != nil {
+                                db.collection("Users").document(UserLocal.UserID!).updateData(["avatarUrl":url?.absoluteString ?? ""])
+                            }
+                        }
+                        self.transitionToHome()
+                    }
+                }
+            }
+            else
+            {
+                self.transitionToHome()
+            }
         }
     }
     func transitionToHome(){
@@ -90,7 +114,8 @@ class EditAccountViewController: UIViewController, UIImagePickerControllerDelega
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            //imgAvatar.contentMode = .scaleAspectFill
+            imgAvatar.contentMode = .scaleAspectFill
+            imgAvatar.layer.cornerRadius = 100
             imgAvatar.image = pickedImage
             imageAvatar = pickedImage
         }

@@ -18,17 +18,33 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var btnEdit: UIButton!
     @IBOutlet weak var imgAvatar: UIImageView!
     
+    @IBOutlet weak var aivLoad: UIActivityIndicatorView!
     @IBOutlet weak var lblFullName: UILabel!
     @IBOutlet weak var lblGender: UILabel!
     @IBOutlet weak var lblBirthday: UILabel!
     @IBOutlet weak var lblEmail: UILabel!
+    
+    //design
+    @IBOutlet weak var lblMyAccount: UILabel!
+    @IBOutlet weak var lblAccount: UILabel!
+    @IBOutlet weak var lblAbout: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         setAccount()
     }
     func setAccount(){
+        lblAccount.layer.masksToBounds = true
+        lblAccount.layer.cornerRadius = 12
+        lblAccount.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
+        lblAbout.layer.masksToBounds = true
+        lblAbout.layer.cornerRadius = 12
+        lblAbout.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
+        lblMyAccount.layer.masksToBounds = true
+        lblMyAccount.layer.cornerRadius = 20
+        Utilities.styleAvatar(imgAvatar)
         btnLoginLogout.title = "Login"
         btnEdit.isHidden = true
         btnChangePassword.isHidden = true
@@ -40,36 +56,26 @@ class AccountViewController: UIViewController {
             self.imgAvatar.image = UIImage(systemName: "person.circle")
         }
         else{
-            self.imgAvatar.contentMode = .scaleAspectFill
-            self.imgAvatar.layer.cornerRadius = 100
             self.imgAvatar.image = UIImage(data: UserLocal.localAccount.avatar!)
         }
+        if UserLocal.localAccount.isDownAvatar == true{
+            aivLoad.startAnimating()
+            let storage = Storage.storage()
+            let storageRef = storage.reference().child("User/" + UserLocal.UserID! + ".jpg")
+            storageRef.getData(maxSize: 7 * 1024 * 1024) { data, error in
+                if error == nil {
+                    self.imgAvatar.image = UIImage(data: data!)
+                    self.aivLoad.stopAnimating()
+                }
+            }
+        }
+        
         if (UserLocal.UserID != nil) {
             //
             btnLoginLogout.title = "Logout"
             btnEdit.isHidden = false
             btnChangePassword.isHidden = false
-//            let db = Firestore.firestore()
-//            let ref = db.collection("Users").document(UserLocal.UserID!)
-//            ref.getDocument { (document, error) in
-//                if let document = document, document.exists {
-//                    let data = document.data()
-//                    self.lblFullName.text = data?["fullName"] as? String
-//                    self.lblGender.text = "Male"
-//                    self.lblBirthday.text = "Null"
-//                }
-//            }
-//        }
-//        else{
-//            //
-//            btnLoginLogout.title = "Login"
-//            //btnEdit.isHidden = true
-//            //btnChangePassword.isHidden = true
-//            self.lblFullName.text = "Guest"
-//            self.lblGender.text = "Null"
-//            self.lblBirthday.text = "Null"
-//            self.lblEmail.text = "Null"
         }
     }
-
+    
 }

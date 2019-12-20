@@ -43,6 +43,7 @@ class UserLocal{
                             saveAccount()
                         }
                         else {
+                            UserLocal.localAccount.isDownAvatar = true
                             let storage = Storage.storage()
                             let storageRef = storage.reference().child("User/" + UserLocal.UserID! + ".jpg")
 
@@ -50,6 +51,7 @@ class UserLocal{
                             storageRef.getData(maxSize: 7 * 1024 * 1024) { data, error in
                                 if error == nil {
                                     UserLocal.localAccount.avatar = data!
+                                    UserLocal.localAccount.isDownAvatar = false
                                     saveAccount()
                                 }
                             }
@@ -76,13 +78,15 @@ class UserLocal{
                                 saveAccount()
                             }
                             else {
+                                UserLocal.localAccount.isDownAvatar = true
                                 let storage = Storage.storage()
                                 let storageRef = storage.reference().child("User/" + UserLocal.UserID! + ".jpg")
 
                                 // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
                                 storageRef.getData(maxSize: 7 * 1024 * 1024) { data, error in
                                     if error == nil {
-                                        UserLocal.localAccount.avatar = data
+                                        UserLocal.localAccount.avatar = data!
+                                        UserLocal.localAccount.isDownAvatar = false
                                         saveAccount()
                                     }
                                 }
@@ -93,40 +97,6 @@ class UserLocal{
             }
             else{
                 UserLocal.localAccount = User()
-            }
-        }
-        
-        if UserLocal.UserID == nil{
-            let realm = try! Realm()
-            if let user = realm.objects(LUser.self).first{
-                localAccount.fullName = user.name
-                localAccount.birthday = user.birthday
-                localAccount.gender = user.gender
-                localAccount.email = user.email
-                localAccount.avatar = user.avatar
-            }
-        }
-        else{
-            let ref = db.collection("Users").document(UserLocal.UserID!)
-            ref.getDocument { (document, error) in
-                if error != nil{
-                   //error
-                  
-                } else{
-                    if let document = document, document.exists {
-                        let data = document.data()
-                        localAccount.fullName = data?["fullName"] as? String
-                        localAccount.gender = data?["gender"] as? String
-                        localAccount.birthday = data?["birthday"] as? String
-                        localAccount.email = data?["email"] as? String
-                        if data?["avatarUrl"] as? String != nil {
-                            
-                            //localAccount.avatar =
-                        }
-                        
-                    }
-                   
-                }
             }
         }
     }
@@ -163,6 +133,7 @@ class User:NSObject {
     var gender: String? = "guest@gmail.com"
     var birthday: String? = "01/01/2000"
     var avatar: Data? = nil
+    var isDownAvatar: Bool = false
 }
 
 

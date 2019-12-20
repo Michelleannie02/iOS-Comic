@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class EditAccountViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class EditAccountViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var imgAvatar: UIImageView!
     @IBOutlet weak var txtName: UITextField!
@@ -32,6 +32,8 @@ class EditAccountViewController: UIViewController, UIImagePickerControllerDelega
         setElement()
     }
     func setElement(){
+        txtName.delegate = self
+        txtBirthday.delegate = self
         lblPersen.layer.masksToBounds = true
         lblPersen.layer.cornerRadius = 20
         lblPersen.layer.borderWidth = 1
@@ -131,5 +133,12 @@ class EditAccountViewController: UIViewController, UIImagePickerControllerDelega
         }
      
         dismiss(animated: true, completion: nil)
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

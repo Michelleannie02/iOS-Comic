@@ -49,6 +49,7 @@ class AccountViewController: UIViewController {
         btnEdit.isHidden = true
         btnChangePassword.isHidden = true
         self.lblFullName.text = UserLocal.localAccount.fullName
+        self.lblMyAccount.text = UserLocal.localAccount.fullName
         self.lblGender.text = UserLocal.localAccount.gender
         self.lblBirthday.text = UserLocal.localAccount.birthday
         self.lblEmail.text = UserLocal.localAccount.email

@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import Firebase
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var txtFullName: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
@@ -24,6 +24,9 @@ class SignUpViewController: UIViewController {
         setElement()
     }
     func setElement(){
+        txtFullName.delegate = self
+        txtPassword.delegate = self
+        txtEmail.delegate = self
         lblError.alpha = 0
         Utilities.styleFilledButton(btnSignUp)
     }
@@ -86,5 +89,12 @@ class SignUpViewController: UIViewController {
         self.view.window?.rootViewController = initialViewController
         self.view.window?.makeKeyAndVisible()
     }
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+
 }

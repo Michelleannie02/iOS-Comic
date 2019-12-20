@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 
-class ChangePasswordViewController: UIViewController {
+class ChangePasswordViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var txtCurrentPassword: UITextField!
     @IBOutlet weak var txtNewPassword: UITextField!
     
@@ -21,6 +21,9 @@ class ChangePasswordViewController: UIViewController {
         setElement()
     }
     func setElement(){
+        txtCurrentPassword.delegate = self
+        txtNewPassword.delegate = self
+        txtRetypeNewPassword.delegate = self
         lblError.alpha = 0
         Utilities.styleFilledButton(btnSend)
     }
@@ -73,5 +76,11 @@ class ChangePasswordViewController: UIViewController {
             showError(error!)
         }
     }
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }

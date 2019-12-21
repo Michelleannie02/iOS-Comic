@@ -26,6 +26,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         txtEmail.delegate = self
         txtPassword.delegate = self
         UserLocal.UserID = nil
+        UserLocal.localAccount = User()
         UserLocal.deleteAccount()
         lblError.alpha = 0
         Utilities.styleFilledButton(btnLogin)
@@ -64,6 +65,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 //        transitionToHome()
 //    }
     func transitionToHome(){
+        Utilities.defaultIndex = 3
+        UserLocal.localAccount.isDownAvatar = true
         let initialViewController = self.storyboard?.instantiateViewController(identifier: "HomeVC")
         self.view.window?.rootViewController = initialViewController
         self.view.window?.makeKeyAndVisible()

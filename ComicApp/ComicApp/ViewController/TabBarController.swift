@@ -14,7 +14,7 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        selectedIndex = defaultIndex
+        selectedIndex = Utilities.defaultIndex
         UserLocal.downAccount()
     }
     

@@ -85,6 +85,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         lblError.alpha = 1
     }
     func transitionToHome(){
+        Utilities.defaultIndex = 3
+        UserLocal.localAccount.isDownAvatar = true
         let initialViewController = self.storyboard?.instantiateViewController(identifier: "HomeVC")
         self.view.window?.rootViewController = initialViewController
         self.view.window?.makeKeyAndVisible()

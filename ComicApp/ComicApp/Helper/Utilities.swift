@@ -8,8 +8,27 @@
 
 import Foundation
 import UIKit
+import Network
+
 
 class Utilities{
+    static var isNetworkConnect: Bool = true
+    static var defaultIndex: Int = 1
+//    static func isNetwork(){
+//        let monitor = NWPathMonitor()
+//        let queue = DispatchQueue(label: "InternetConnectionMonitor")
+//        monitor.pathUpdateHandler = { path in
+//            if path.status == .satisfied {
+//                print("asjdhakjsdhhadajhsds")
+//            }
+//            else{
+//                UserLocal.localAccount.isDownAvatar = false
+//                print(333333333)
+//            }
+//        }
+//        monitor.start(queue: queue)
+//        monitor.currentPath.isExpensive
+//    }
     static func stylteTextField(_ textField:UITextField){
         
         textField.borderStyle = .line
@@ -28,6 +47,7 @@ class Utilities{
         button.tintColor = UIColor.white
     }
     static func styleHellowButton(_ button: UIButton){
+        button.backgroundColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 1)
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
         button.layer.cornerRadius = 25

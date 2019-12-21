@@ -26,8 +26,8 @@ class AccountViewController: UIViewController {
     
     //design
     @IBOutlet weak var lblMyAccount: UILabel!
-    @IBOutlet weak var lblAccount: UILabel!
-    @IBOutlet weak var lblAbout: UILabel!
+    @IBOutlet weak var viewAccount: UIView!
+    @IBOutlet weak var viewAbout: UIView!
     
     
     override func viewDidLoad() {
@@ -36,12 +36,10 @@ class AccountViewController: UIViewController {
         setAccount()
     }
     func setAccount(){
-        lblAccount.layer.masksToBounds = true
-        lblAccount.layer.cornerRadius = 12
-        lblAccount.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
-        lblAbout.layer.masksToBounds = true
-        lblAbout.layer.cornerRadius = 12
-        lblAbout.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
+        viewAccount.layer.masksToBounds = true
+        viewAccount.layer.cornerRadius = 12
+        viewAbout.layer.masksToBounds = true
+        viewAbout.layer.cornerRadius = 12
         lblMyAccount.layer.masksToBounds = true
         lblMyAccount.layer.cornerRadius = 20
         Utilities.styleAvatar(imgAvatar)
@@ -49,7 +47,7 @@ class AccountViewController: UIViewController {
         btnEdit.isHidden = true
         btnChangePassword.isHidden = true
         self.lblFullName.text = UserLocal.localAccount.fullName
-        self.lblMyAccount.text = UserLocal.localAccount.fullName
+        self.lblMyAccount.text = "  " + UserLocal.localAccount.fullName! + "  "
         self.lblGender.text = UserLocal.localAccount.gender
         self.lblBirthday.text = UserLocal.localAccount.birthday
         self.lblEmail.text = UserLocal.localAccount.email
@@ -59,13 +57,27 @@ class AccountViewController: UIViewController {
         else{
             self.imgAvatar.image = UIImage(data: UserLocal.localAccount.avatar!)
         }
-        if UserLocal.localAccount.isDownAvatar == true{
+        if UserLocal.localAccount.isDownAvatar == true && UserLocal.UserID != nil {
             aivLoad.startAnimating()
             let storage = Storage.storage()
             let storageRef = storage.reference().child("User/" + UserLocal.UserID! + ".jpg")
             storageRef.getData(maxSize: 7 * 1024 * 1024) { data, error in
                 if error == nil {
                     self.imgAvatar.image = UIImage(data: data!)
+                    self.lblFullName.text = UserLocal.localAccount.fullName
+                    self.lblMyAccount.text = UserLocal.localAccount.fullName
+                    self.lblGender.text = UserLocal.localAccount.gender
+                    self.lblBirthday.text = UserLocal.localAccount.birthday
+                    self.lblEmail.text = UserLocal.localAccount.email
+                    self.aivLoad.stopAnimating()
+                }
+                else{
+                    sleep(1)
+                    self.lblFullName.text = UserLocal.localAccount.fullName
+                    self.lblMyAccount.text = "  " + UserLocal.localAccount.fullName! + "  "
+                    self.lblGender.text = UserLocal.localAccount.gender
+                    self.lblBirthday.text = UserLocal.localAccount.birthday
+                    self.lblEmail.text = UserLocal.localAccount.email
                     self.aivLoad.stopAnimating()
                 }
             }
@@ -74,8 +86,10 @@ class AccountViewController: UIViewController {
         if (UserLocal.UserID != nil) {
             //
             btnLoginLogout.title = "Logout"
-            btnEdit.isHidden = false
-            btnChangePassword.isHidden = false
+            if Utilities.isNetworkConnect == true{
+                btnEdit.isHidden = false
+                btnChangePassword.isHidden = false
+            }
         }
     }
     

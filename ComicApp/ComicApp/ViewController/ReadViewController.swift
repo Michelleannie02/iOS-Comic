@@ -122,7 +122,9 @@ class ReadViewController: UIViewController, UICollectionViewDataSource, UICollec
         cell.clipsToBounds = true
         cell.layer.cornerRadius = 15
         
-        let width = UIScreen.main.bounds.width/2 - 9
+        let w = view.safeAreaLayoutGuide.layoutFrame.size.width
+        
+        let width = w/2 - 9
         let height = width * 1.25
         cell.imgView.frame = CGRect(x: 0,y: 0,width: width, height: height)
         cell.contentView.addSubview(cell.imgView)
@@ -138,19 +140,37 @@ class ReadViewController: UIViewController, UICollectionViewDataSource, UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
         downImg()
-        let width = UIScreen.main.bounds.width/2 - 9
+        let w = view.safeAreaLayoutGuide.layoutFrame.size.width
+        
+        let width = w/2 - 15
         let height = width * 1.65
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         layout.itemSize = CGSize(width: width, height: height)
 
-        layout.minimumInteritemSpacing = 10
-        layout.minimumLineSpacing = 15
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 10
         tap.isEnabled = false
         collectionView.collectionViewLayout = layout
         
     //mySearch.searchTextField.backgroundColor = .white
         
     }
+    
+     override func viewDidLayoutSubviews() {
+    //        viewDidLoad()
+        collectionView.reloadData()
+        
+        let w = view.safeAreaLayoutGuide.layoutFrame.size.width
+        let width = w/2 - 15
+        let height = width * 1.65
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        layout.itemSize = CGSize(width: width, height: height)
 
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 10
+        tap.isEnabled = false
+        collectionView.collectionViewLayout = layout
+        }
 }

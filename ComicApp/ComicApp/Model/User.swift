@@ -128,9 +128,9 @@ class UserLocal{
     
 }
 class User:NSObject {
-    var email: String? = "Guest"
-    var fullName: String? = "Other"
-    var gender: String? = "guest@gmail.com"
+    var email: String? = "guest@gmail.com"
+    var fullName: String? = "Guest"
+    var gender: String? = "Other"
     var birthday: String? = "01/01/2000"
     var avatar: Data? = nil
     var isDownAvatar: Bool = false

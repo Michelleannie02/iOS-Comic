@@ -14,11 +14,9 @@
 		5F88C0D1239E920E00297359 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F88C0D0239E920E00297359 /* AccountViewController.swift */; };
 		5FB1E9AA23A9298D00316828 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB1E9A923A9298C00316828 /* EditAccountViewController.swift */; };
 		5FB1E9AC23A929BA00316828 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB1E9AB23A929BA00316828 /* ChangePasswordViewController.swift */; };
-		5FDCA811239F9BEC00FEC38E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDCA810239F9BEC00FEC38E /* Utilities.swift */; };
 		5FDCA813239F9C2000FEC38E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDCA812239F9C2000FEC38E /* User.swift */; };
 		5FE05578239C26F30000F144 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE05577239C26F30000F144 /* AppDelegate.swift */; };
 		5FE0557A239C26F30000F144 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE05579239C26F30000F144 /* SceneDelegate.swift */; };
-		5FE0557C239C26F30000F144 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0557B239C26F30000F144 /* ViewController.swift */; };
 		5FE0557F239C26F30000F144 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FE0557D239C26F30000F144 /* Main.storyboard */; };
 		5FE05581239C27760000F144 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FE05580239C27760000F144 /* Assets.xcassets */; };
 		5FE05584239C27770000F144 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FE05582239C27770000F144 /* LaunchScreen.storyboard */; };
@@ -26,6 +24,7 @@
 		CD2D4C3F23A07E97005B049E /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D4C3E23A07E97005B049E /* InfoViewController.swift */; };
 		CD2D4C4123A07F3D005B049E /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D4C4023A07F3D005B049E /* Comic.swift */; };
 		CD2D4C4323A08534005B049E /* ChapterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D4C4223A08534005B049E /* ChapterViewController.swift */; };
+		CDBFCE1123ADE1780044A07A /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBFCE1023ADE1780044A07A /* Utilities.swift */; };
 		CDE8CA7C23A9B44000ED87F1 /* ShowChapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE8CA7B23A9B44000ED87F1 /* ShowChapViewController.swift */; };
 		CDE8CA7E23A9E6E800ED87F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDE8CA7D23A9E6E800ED87F1 /* GoogleService-Info.plist */; };
 		CDEE422723A04CCC00C57D87 /* ReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE422623A04CCC00C57D87 /* ReadViewController.swift */; };
@@ -41,12 +40,10 @@
 		5F88C0D0239E920E00297359 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		5FB1E9A923A9298C00316828 /* EditAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
 		5FB1E9AB23A929BA00316828 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
-		5FDCA810239F9BEC00FEC38E /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = SOURCE_ROOT; };
 		5FDCA812239F9C2000FEC38E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = ComicApp/Model/User.swift; sourceTree = SOURCE_ROOT; };
 		5FE05574239C26F30000F144 /* ComicApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComicApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE05577239C26F30000F144 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FE05579239C26F30000F144 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5FE0557B239C26F30000F144 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5FE0557E239C26F30000F144 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5FE05580239C27760000F144 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5FE05583239C27770000F144 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,6 +53,7 @@
 		CD2D4C3E23A07E97005B049E /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		CD2D4C4023A07F3D005B049E /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
 		CD2D4C4223A08534005B049E /* ChapterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterViewController.swift; sourceTree = "<group>"; };
+		CDBFCE1023ADE1780044A07A /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		CDE8CA7B23A9B44000ED87F1 /* ShowChapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowChapViewController.swift; sourceTree = "<group>"; };
 		CDE8CA7D23A9E6E800ED87F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CDEE422623A04CCC00C57D87 /* ReadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadViewController.swift; sourceTree = "<group>"; };
@@ -77,7 +75,7 @@
 		5F88C0C3239E8A3100297359 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				5FDCA810239F9BEC00FEC38E /* Utilities.swift */,
+				CDBFCE1023ADE1780044A07A /* Utilities.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -95,6 +93,7 @@
 		5F88C0C7239E8A7B00297359 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				5F02595A239FD7A40023FA30 /* TabBarController.swift */,
 				5F88C0D0239E920E00297359 /* AccountViewController.swift */,
 				5F88C0CC239E91B200297359 /* LoginViewController.swift */,
 				5F88C0CE239E91DB00297359 /* SignUpViewController.swift */,
@@ -132,14 +131,10 @@
 			children = (
 				5F88C0C3239E8A3100297359 /* Helper */,
 				5F88C0C4239E8A4300297359 /* Model */,
+				CDBFCE1223ADE20D0044A07A /* Views */,
 				5F88C0C7239E8A7B00297359 /* ViewController */,
-				5FE05577239C26F30000F144 /* AppDelegate.swift */,
 				5FE05579239C26F30000F144 /* SceneDelegate.swift */,
-				5F02595A239FD7A40023FA30 /* TabBarController.swift */,
-				5FE0557B239C26F30000F144 /* ViewController.swift */,
-				5FE0557D239C26F30000F144 /* Main.storyboard */,
-				5FE05580239C27760000F144 /* Assets.xcassets */,
-				5FE05582239C27770000F144 /* LaunchScreen.storyboard */,
+				5FE05577239C26F30000F144 /* AppDelegate.swift */,
 				5FE05585239C27770000F144 /* Info.plist */,
 				CDE8CA7D23A9E6E800ED87F1 /* GoogleService-Info.plist */,
 			);
@@ -161,6 +156,16 @@
 				CA689EF98AEB5FF695E81ED7 /* Pods_ComicApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CDBFCE1223ADE20D0044A07A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5FE0557D239C26F30000F144 /* Main.storyboard */,
+				5FE05580239C27760000F144 /* Assets.xcassets */,
+				5FE05582239C27770000F144 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,9 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F88C0CF239E91DB00297359 /* SignUpViewController.swift in Sources */,
-				5FE0557C239C26F30000F144 /* ViewController.swift in Sources */,
 				5F0B6A2323AC910B0066B78E /* RealmObject.swift in Sources */,
-				5FDCA811239F9BEC00FEC38E /* Utilities.swift in Sources */,
 				CDE8CA7C23A9B44000ED87F1 /* ShowChapViewController.swift in Sources */,
 				5F02595B239FD7A40023FA30 /* TabBarController.swift in Sources */,
 				CDEE422723A04CCC00C57D87 /* ReadViewController.swift in Sources */,
@@ -291,6 +294,7 @@
 				5FE05578239C26F30000F144 /* AppDelegate.swift in Sources */,
 				5FE0557A239C26F30000F144 /* SceneDelegate.swift in Sources */,
 				5FB1E9AC23A929BA00316828 /* ChangePasswordViewController.swift in Sources */,
+				CDBFCE1123ADE1780044A07A /* Utilities.swift in Sources */,
 				CD2D4C4123A07F3D005B049E /* Comic.swift in Sources */,
 				CD2D4C4323A08534005B049E /* ChapterViewController.swift in Sources */,
 				5F88C0CD239E91B200297359 /* LoginViewController.swift in Sources */,

@@ -13,7 +13,6 @@ import Network
 
 class Utilities{
     static var isNetworkConnect: Bool = true
-    static var defaultIndex: Int = 1
 //    static func isNetwork(){
 //        let monitor = NWPathMonitor()
 //        let queue = DispatchQueue(label: "InternetConnectionMonitor")

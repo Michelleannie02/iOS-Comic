@@ -121,11 +121,9 @@ class EditAccountViewController: UIViewController, UIImagePickerControllerDelega
         }
     }
     func transitionToHome(){
-        Utilities.defaultIndex = 3
         UserLocal.localAccount.isDownAvatar = true
-        let initialViewController = self.storyboard?.instantiateViewController(identifier: "HomeVC")
-        self.view.window?.rootViewController = initialViewController
-        self.view.window?.makeKeyAndVisible()
+        self.dismiss(animated: true, completion: {})
+        self.navigationController?.popToRootViewController(animated: true)
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {

@@ -13,8 +13,10 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        /*
         selectedIndex = Utilities.defaultIndex
+ */
+        selectedIndex = defaultIndex
         UserLocal.downAccount()
     }
     

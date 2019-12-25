@@ -32,10 +32,16 @@ class AccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setElement()
         setAccount()
     }
-    func setAccount(){
+    override func viewWillAppear(_ animated: Bool) {
+        if UserLocal.UserID == nil{
+            setAccount()
+        }
+        downAccount()
+    }
+    func setElement(){
         viewAccount.layer.masksToBounds = true
         viewAccount.layer.cornerRadius = 12
         viewAbout.layer.masksToBounds = true
@@ -46,6 +52,8 @@ class AccountViewController: UIViewController {
         btnLoginLogout.title = "Login"
         btnEdit.isHidden = true
         btnChangePassword.isHidden = true
+    }
+    func setAccount(){
         self.lblFullName.text = UserLocal.localAccount.fullName
         self.lblMyAccount.text = "  " + UserLocal.localAccount.fullName! + "  "
         self.lblGender.text = UserLocal.localAccount.gender
@@ -58,31 +66,8 @@ class AccountViewController: UIViewController {
             self.imgAvatar.image = UIImage(data: UserLocal.localAccount.avatar!)
         }
         if UserLocal.localAccount.isDownAvatar == true && UserLocal.UserID != nil {
-            aivLoad.startAnimating()
-            let storage = Storage.storage()
-            let storageRef = storage.reference().child("User/" + UserLocal.UserID! + ".jpg")
-            storageRef.getData(maxSize: 7 * 1024 * 1024) { data, error in
-                if error == nil {
-                    self.imgAvatar.image = UIImage(data: data!)
-                    self.lblFullName.text = UserLocal.localAccount.fullName
-                    self.lblMyAccount.text = UserLocal.localAccount.fullName
-                    self.lblGender.text = UserLocal.localAccount.gender
-                    self.lblBirthday.text = UserLocal.localAccount.birthday
-                    self.lblEmail.text = UserLocal.localAccount.email
-                    self.aivLoad.stopAnimating()
-                }
-                else{
-                    sleep(1)
-                    self.lblFullName.text = UserLocal.localAccount.fullName
-                    self.lblMyAccount.text = "  " + UserLocal.localAccount.fullName! + "  "
-                    self.lblGender.text = UserLocal.localAccount.gender
-                    self.lblBirthday.text = UserLocal.localAccount.birthday
-                    self.lblEmail.text = UserLocal.localAccount.email
-                    self.aivLoad.stopAnimating()
-                }
-            }
+            downAccount()
         }
-        
         if (UserLocal.UserID != nil) {
             //
             btnLoginLogout.title = "Logout"
@@ -91,6 +76,55 @@ class AccountViewController: UIViewController {
                 btnChangePassword.isHidden = false
             }
         }
+        else{
+            btnLoginLogout.title = "Login"
+            btnEdit.isHidden = true
+            btnChangePassword.isHidden = true
+        }
+    }
+    func downAccount(){
+        if UserLocal.localAccount.isDownAvatar == true && UserLocal.UserID != nil {
+            aivLoad.startAnimating()
+            let db = Firestore.firestore()
+            let ref = db.collection("Users").document(UserLocal.UserID!)
+            ref.getDocument { (document, error) in
+                if error != nil{
+                    UserLocal.localAccount.isDownAvatar = false
+                } else{
+                    if let document = document, document.exists {
+                        let data = document.data()
+                        UserLocal.localAccount.fullName = data?["fullName"] as? String
+                        UserLocal.localAccount.gender = data?["gender"] as? String
+                        UserLocal.localAccount.birthday = data?["birthday"] as? String
+                        UserLocal.localAccount.email = data?["email"] as? String
+                        if data?["avatarUrl"] as? String == "" {
+                            UserLocal.localAccount.avatar = nil
+                            self.setAccount()
+                            self.aivLoad.stopAnimating()
+                            UserLocal.userRamToRealm()
+                        }
+                        else {
+                            let storage = Storage.storage()
+                            let storageRef = storage.reference().child("User/" + UserLocal.UserID! + ".jpg")
+
+                            // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+                            storageRef.getData(maxSize: 7 * 1024 * 1024) { data, error in
+                                if error == nil {
+                                    UserLocal.localAccount.avatar = data!
+                                    UserLocal.localAccount.isDownAvatar = false
+                                    self.setAccount()
+                                    self.aivLoad.stopAnimating()
+                                    UserLocal.userRamToRealm()
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+        
+
     }
     
 }

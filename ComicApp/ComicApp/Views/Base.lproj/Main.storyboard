@@ -218,18 +218,137 @@
         <!--Item-->
         <scene sceneID="FG6-p8-Lzd">
             <objects>
-                <viewController id="Dud-lS-0Wn" sceneMemberID="viewController">
+                <viewController id="Dud-lS-0Wn" customClass="ShelfViewController" customModule="ComicApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NlC-rg-UlV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="25i-GN-JxD">
+                                <rect key="frame" x="0.0" y="44" width="414" height="32"/>
+                                <segments>
+                                    <segment title="Download"/>
+                                    <segment title="History"/>
+                                    <segment title="Like"/>
+                                </segments>
+                                <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="selectedSegmentTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="reLoad:" destination="Dud-lS-0Wn" eventType="valueChanged" id="ONh-e9-YQV"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7x7-Ns-b5h">
+                                <rect key="frame" x="0.0" y="75" width="414" height="738"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="shelfCell" rowHeight="97" id="sdL-1N-YOq" customClass="ShelfTableViewCell" customModule="ComicApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="97"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sdL-1N-YOq" id="yfG-1N-hVU">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="97"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2KD-En-hjC">
+                                                    <rect key="frame" x="20" y="11" width="374" height="75"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0hf-t6-v3k">
+                                                            <rect key="frame" x="0.0" y="0.0" width="60" height="75"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="60" id="VyL-SP-pAv"/>
+                                                                <constraint firstAttribute="height" constant="75" id="yS2-Me-sU5"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="THF-4N-n42">
+                                                            <rect key="frame" x="70" y="0.0" width="261" height="75"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comic name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1YQ-hT-adg">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="261" height="36"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="36" id="Axe-aC-Rgj"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <progressView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yu8-Kc-h4L">
+                                                                    <rect key="frame" x="0.0" y="36" width="261" height="2"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="2" id="FCb-Ea-sfN"/>
+                                                                    </constraints>
+                                                                </progressView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Downloading 0/100 Mb" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gJ-GY-x3T">
+                                                                    <rect key="frame" x="0.0" y="38" width="261" height="21"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="21" id="1GL-Rp-v1N"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pan-nY-7hZ">
+                                                                    <rect key="frame" x="0.0" y="59" width="261" height="16"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jug-Cb-R3A">
+                                                            <rect key="frame" x="341" y="0.0" width="33" height="75"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="33" id="i3R-Xe-7O8"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                            <state key="normal" image="multiply.circle" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="CancelDownload:" destination="sdL-1N-YOq" eventType="touchUpInside" id="G2l-HF-YOt"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="2KD-En-hjC" secondAttribute="trailing" id="5nt-Mt-kYM"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="2KD-En-hjC" secondAttribute="bottom" id="D3b-Hj-xhm"/>
+                                                <constraint firstItem="2KD-En-hjC" firstAttribute="top" secondItem="yfG-1N-hVU" secondAttribute="topMargin" id="YyI-lX-S1S"/>
+                                                <constraint firstItem="2KD-En-hjC" firstAttribute="leading" secondItem="yfG-1N-hVU" secondAttribute="leadingMargin" id="cjV-uj-BjN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="avdDownload" destination="yu8-Kc-h4L" id="JkX-aJ-jw5"/>
+                                            <outlet property="btnCancel" destination="Jug-Cb-R3A" id="Igs-pr-K4Q"/>
+                                            <outlet property="imgPoster" destination="0hf-t6-v3k" id="o5K-Kl-sGp"/>
+                                            <outlet property="lblComicName" destination="1YQ-hT-adg" id="KYM-J4-EnI"/>
+                                            <outlet property="lblSub" destination="6gJ-GY-x3T" id="lbj-2W-C3b"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Dud-lS-0Wn" id="Uhi-j8-eBn"/>
+                                    <outlet property="delegate" destination="Dud-lS-0Wn" id="BFH-Mw-VkE"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="jNo-Vt-eZB" firstAttribute="trailing" secondItem="7x7-Ns-b5h" secondAttribute="trailing" id="avd-hw-ibA"/>
+                            <constraint firstItem="jNo-Vt-eZB" firstAttribute="trailing" secondItem="25i-GN-JxD" secondAttribute="trailing" id="k7a-P9-H3w"/>
+                            <constraint firstItem="25i-GN-JxD" firstAttribute="top" secondItem="jNo-Vt-eZB" secondAttribute="top" id="nsA-gC-Ylk"/>
+                            <constraint firstItem="7x7-Ns-b5h" firstAttribute="leading" secondItem="jNo-Vt-eZB" secondAttribute="leading" id="qwG-vl-Hd2"/>
+                            <constraint firstItem="25i-GN-JxD" firstAttribute="leading" secondItem="jNo-Vt-eZB" secondAttribute="leading" id="uDc-ZL-sqQ"/>
+                            <constraint firstItem="7x7-Ns-b5h" firstAttribute="bottom" secondItem="jNo-Vt-eZB" secondAttribute="bottom" id="uuW-a9-Rcs"/>
+                            <constraint firstItem="7x7-Ns-b5h" firstAttribute="top" secondItem="25i-GN-JxD" secondAttribute="bottom" id="zSI-lL-83O"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="jNo-Vt-eZB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" image="uiwindow.split.2x1" catalog="system" id="CEq-j9-ui7"/>
+                    <connections>
+                        <outlet property="segMenu" destination="25i-GN-JxD" id="ErV-8I-8pm"/>
+                        <outlet property="tbvShelf" destination="7x7-Ns-b5h" id="s66-wa-Qf3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0jo-5u-Xcf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="652" y="-81"/>
+            <point key="canvasLocation" x="650.22321428571422" y="-81.159420289855078"/>
         </scene>
         <!--Item-->
         <scene sceneID="hqL-nn-e2B">
@@ -593,7 +712,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="EjR-gJ-Jap"/>
                         <barButtonItem key="rightBarButtonItem" title="Login" id="aki-eN-5Gu">
                             <connections>
-                                <segue destination="rsr-pZ-Afr" kind="presentation" modalPresentationStyle="fullScreen" id="9LU-We-MBw"/>
+                                <segue destination="aOO-pp-jvx" kind="show" id="rw0-r3-cyQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -619,7 +738,7 @@
         <!--Login your account-->
         <scene sceneID="dhg-bH-411">
             <objects>
-                <viewController id="aOO-pp-jvx" customClass="LoginViewController" customModule="ComicApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="aOO-pp-jvx" customClass="LoginViewController" customModule="ComicApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zhz-3p-68M">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -704,7 +823,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RuF-46-eJ8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6531.884057971015" y="-81.026785714285708"/>
+            <point key="canvasLocation" x="5735" y="-80"/>
         </scene>
         <!--Create new account-->
         <scene sceneID="P0d-1i-eDt">
@@ -785,7 +904,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eyp-s3-xBp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7431.884057971015" y="-81.026785714285708"/>
+            <point key="canvasLocation" x="6583" y="-82"/>
         </scene>
         <!--Change password-->
         <scene sceneID="7eH-ZX-EpW">
@@ -1105,25 +1224,6 @@
             </objects>
             <point key="canvasLocation" x="5734.7826086956529" y="-735.26785714285711"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="YaX-cH-M1n">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rsr-pZ-Afr" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="XyO-hI-ldj"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="07X-PW-hYk">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="aOO-pp-jvx" kind="relationship" relationship="rootViewController" id="eHv-tQ-HHO"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="By2-95-GOk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5736.2318840579719" y="-82.366071428571431"/>
-        </scene>
         <!--Read-->
         <scene sceneID="ny8-W3-RIx">
             <objects>
@@ -1335,6 +1435,7 @@
         <image name="heart.fill" catalog="system" width="64" height="54"/>
         <image name="house.fill" catalog="system" width="64" height="52"/>
         <image name="largecircle.fill.circle" catalog="system" width="64" height="60"/>
+        <image name="multiply.circle" catalog="system" width="64" height="60"/>
         <image name="pencil" catalog="system" width="64" height="56"/>
         <image name="person.3" catalog="system" width="72" height="35"/>
         <image name="person.circle" catalog="system" width="64" height="60"/>

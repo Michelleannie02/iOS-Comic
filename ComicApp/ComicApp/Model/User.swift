@@ -84,7 +84,7 @@ class UserLocal{
         monitor.start(queue: queue)
         monitor.currentPath.isExpensive
         
-//        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
 //        let db = Firestore.firestore()
 //        let realm = try! Realm()
 //        if let user = realm.objects(LUser.self).first{

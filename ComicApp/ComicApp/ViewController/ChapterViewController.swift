@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseStorage
+import RealmSwift
 
 class ChapterViewController: UIViewController, UIScrollViewDelegate {
 
@@ -56,7 +57,7 @@ class ChapterViewController: UIViewController, UIScrollViewDelegate {
         }
         
         let storage = Storage.storage()
-        let storageRef = storage.reference().child("Comic/" + Comic.name! + path)
+        let storageRef = storage.reference().child("Comic/" + Comic.id! + path)
         
         
         storageRef.listAll { (result, err) in
@@ -115,6 +116,30 @@ class ChapterViewController: UIViewController, UIScrollViewDelegate {
         
     }
     
+    func loadChapterFromRealm(_ index: Int){
+        let realm = try! Realm()
+        let comics = realm.objects(LComic.self)
+        for comic in comics{
+            if comic.comicID == Comic.id{
+                var height = CGFloat(0)
+                for img in comic.listChap[index].listImg {
+                    let image = UIImage(data: img)
+                    self.images.append(image!)
+                    let imageView = UIImageView()
+                    let widthScale = self.read.bounds.width /  image!.size.width
+                    imageView.frame = CGRect(x: 0, y: height, width: self.view.frame.width, height: image!.size.height * CGFloat(widthScale))
+                    height += image!.size.height * CGFloat(widthScale)
+                    imageView.contentMode = .scaleAspectFit
+                    imageView.image = image
+                    self.read.contentSize.height = height + 0
+                    self.read.addSubview(imageView)
+                }
+                
+                return
+            }
+        }
+    }
+    
     func Init() {
         prevButton.isEnabled = true
         nextButton.isEnabled = true
@@ -131,7 +156,12 @@ class ChapterViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         Init()
         chap.title = "Chap \(Comic.chap! + 1)"
-        downLoad(Comic.chap!)
+        if Comic.isDownloaded == true{
+            loadChapterFromRealm(Comic.chap!)
+        }
+        else{
+            downLoad(Comic.chap!)
+        }
         toolChap.isHidden = true;
     }
     

@@ -17,13 +17,13 @@ class LUser: Object {
     @objc dynamic var avatar : Data? = nil
     @objc dynamic var userID : String? = nil
 }
-//class LComic: Object{
-//    @objc dynamic var comicName: String? = ""
-//    @objc dynamic var comicID: String? = ""
-//    @objc dynamic var comicNChap: NSNumber? = 0
-//    @objc dynamic var listChap: [LChap] = []
-//}
-//class LChap: Object{
-//    @objc dynamic var comicName: String? = ""
-//    @objc dynamic var listImg: [Data] = []
-//}
+class LComic: Object{
+    @objc dynamic var comicName: String? = ""
+    @objc dynamic var comicID: String? = ""
+    @objc dynamic var comicNChap = 0
+    @objc dynamic var comicPoster: Data? = nil
+    var listChap =  List<LChap>()
+}
+class LChap: Object{
+    var listImg = List<Data>()
+}

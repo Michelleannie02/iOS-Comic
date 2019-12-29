@@ -18,6 +18,8 @@ class TabBarController: UITabBarController {
  */
         selectedIndex = defaultIndex
         UserLocal.downAccount()
+        Shelf.ComicRealmToRam()
+        Shelf.DownloadList()
     }
     
 }

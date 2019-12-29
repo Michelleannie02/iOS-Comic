@@ -133,7 +133,7 @@ class ReadViewController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
         //print("You selected cell #\(indexPath.item)!")
-        Comic.name = self.names[indexPath.item]
+        Comic.id = self.names[indexPath.item]
     }
 
     

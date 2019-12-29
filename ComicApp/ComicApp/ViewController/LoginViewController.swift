@@ -25,12 +25,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func setElement(){
         txtEmail.delegate = self
         txtPassword.delegate = self
-        UserLocal.UserID = nil
-        UserLocal.localAccount = User()
-        UserLocal.deleteAccount()
         lblError.alpha = 0
         Utilities.styleFilledButton(btnLogin)
         Utilities.styleHellowButton(btnSignUp)
+        //delete old account
+        UserLocal.UserID = nil
+        UserLocal.localAccount = User()
+        Shelf.listHistory = [DComic]()
+        Shelf.listLike = [DComic]()
+        UserLocal.deleteAccount()
     }
     
 
@@ -65,7 +68,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 //        transitionToHome()
 //    }
     func transitionToHome(){
-        
+        Shelf.DownloadList()
         UserLocal.localAccount.isDownAvatar = true
         self.dismiss(animated: true, completion: {})
         self.navigationController?.popToRootViewController(animated: true)

@@ -13,6 +13,18 @@ import Network
 
 class Utilities{
     static var isNetworkConnect: Bool = true
+    static func setLblTwoColor(_ lbl: UILabel, _ str1: String,_ str2: String){
+        let attrs1 = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 17), NSAttributedString.Key.foregroundColor : UIColor.black]
+
+        let attrs2 = [NSAttributedString.Key.font : UIFont.italicSystemFont(ofSize: 17), NSAttributedString.Key.foregroundColor : UIColor.link]
+
+        let attributedString1 = NSMutableAttributedString(string:str1 + " - ", attributes:attrs1)
+
+        let attributedString2 = NSMutableAttributedString(string:str2, attributes:attrs2)
+
+        attributedString1.append(attributedString2)
+        lbl.attributedText = attributedString1
+    }
     static func styleButtonLike(_ btn: UIButton){
         switch btn.tag {
         case 0:

@@ -16,6 +16,9 @@
 		5F88C0D1239E920E00297359 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F88C0D0239E920E00297359 /* AccountViewController.swift */; };
 		5FB1E9AA23A9298D00316828 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB1E9A923A9298C00316828 /* EditAccountViewController.swift */; };
 		5FB1E9AC23A929BA00316828 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB1E9AB23A929BA00316828 /* ChangePasswordViewController.swift */; };
+		5FD083CF23B9FCD400D66FF5 /* commentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD083CE23B9FCD400D66FF5 /* commentTableViewCell.swift */; };
+		5FD083D123BA09A900D66FF5 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD083D023BA09A900D66FF5 /* ReviewViewController.swift */; };
+		5FD083D323BA0ACB00D66FF5 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD083D223BA0ACB00D66FF5 /* Comment.swift */; };
 		5FDCA813239F9C2000FEC38E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDCA812239F9C2000FEC38E /* User.swift */; };
 		5FE05578239C26F30000F144 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE05577239C26F30000F144 /* AppDelegate.swift */; };
 		5FE0557A239C26F30000F144 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE05579239C26F30000F144 /* SceneDelegate.swift */; };
@@ -44,6 +47,9 @@
 		5F88C0D0239E920E00297359 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		5FB1E9A923A9298C00316828 /* EditAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
 		5FB1E9AB23A929BA00316828 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		5FD083CE23B9FCD400D66FF5 /* commentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commentTableViewCell.swift; sourceTree = "<group>"; };
+		5FD083D023BA09A900D66FF5 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		5FD083D223BA0ACB00D66FF5 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		5FDCA812239F9C2000FEC38E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = ComicApp/Model/User.swift; sourceTree = SOURCE_ROOT; };
 		5FE05574239C26F30000F144 /* ComicApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComicApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE05577239C26F30000F144 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +96,7 @@
 				5FDCA812239F9C2000FEC38E /* User.swift */,
 				CD2D4C4023A07F3D005B049E /* Comic.swift */,
 				5F0B6A2223AC910B0066B78E /* RealmObject.swift */,
+				5FD083D223BA0ACB00D66FF5 /* Comment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -110,6 +117,8 @@
 				CDE8CA7B23A9B44000ED87F1 /* ShowChapViewController.swift */,
 				5F289BA123AE9F040053F1FE /* ShelfViewController.swift */,
 				5F83603523AEF86100D711AA /* ShelfTableViewCell.swift */,
+				5FD083CE23B9FCD400D66FF5 /* commentTableViewCell.swift */,
+				5FD083D023BA09A900D66FF5 /* ReviewViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -292,11 +301,14 @@
 			files = (
 				5F88C0CF239E91DB00297359 /* SignUpViewController.swift in Sources */,
 				5F0B6A2323AC910B0066B78E /* RealmObject.swift in Sources */,
+				5FD083D123BA09A900D66FF5 /* ReviewViewController.swift in Sources */,
 				CDE8CA7C23A9B44000ED87F1 /* ShowChapViewController.swift in Sources */,
+				5FD083CF23B9FCD400D66FF5 /* commentTableViewCell.swift in Sources */,
 				5F02595B239FD7A40023FA30 /* TabBarController.swift in Sources */,
 				5F83603623AEF86100D711AA /* ShelfTableViewCell.swift in Sources */,
 				CDEE422723A04CCC00C57D87 /* ReadViewController.swift in Sources */,
 				5F289BA223AE9F040053F1FE /* ShelfViewController.swift in Sources */,
+				5FD083D323BA0ACB00D66FF5 /* Comment.swift in Sources */,
 				5F88C0D1239E920E00297359 /* AccountViewController.swift in Sources */,
 				5FDCA813239F9C2000FEC38E /* User.swift in Sources */,
 				5FE05578239C26F30000F144 /* AppDelegate.swift in Sources */,

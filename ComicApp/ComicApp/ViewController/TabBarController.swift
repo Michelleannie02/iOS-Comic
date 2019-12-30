@@ -20,6 +20,7 @@ class TabBarController: UITabBarController {
         UserLocal.downAccount()
         Shelf.ComicRealmToRam()
         Shelf.DownloadList()
+        Comment.dowloadListReviewWorld()
     }
     
 }

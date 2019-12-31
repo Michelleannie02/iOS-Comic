@@ -56,11 +56,11 @@ class InfoViewController: UIViewController {
                 //delete list cpu
                 var i = 0
                 for check in Shelf.listLike{
-                    i += 1
                     if check.idComic == Comic.id{
                         Shelf.listLike.remove(at: i)
                         break;
                     }
+                    i += 1
                 }
             }
             else{
@@ -76,7 +76,7 @@ class InfoViewController: UIViewController {
                         comictmp.name = document?.data()?["name"] as? String
                         comictmp.totalChap = document?.data()?["totalChap"] as? Int
                         let posterPath = document?.data()?["posterPath"] as? String
-                        storage.reference().child(posterPath!).getData(maxSize: 1024*1024) { (data, error) in
+                        storage.reference().child(posterPath!).getData(maxSize: 7*1024*1024) { (data, error) in
                             if error == nil{
                                 comictmp.poster = data!
                                 Shelf.listLike.append(comictmp)
@@ -119,6 +119,7 @@ class InfoViewController: UIViewController {
     
     @IBAction func Download(_ sender: Any) {
         btnDownload.isHidden = true
+        Comic.isDowloading += 1
         Shelf.DownloadCommic(Comic.id!)
     }
     
@@ -155,7 +156,7 @@ class InfoViewController: UIViewController {
             
             for item in result.items {
                 // The items under storageReference.
-                item.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                item.getData(maxSize: 7 * 1024 * 1024) { data, error in
                     if error != nil {
                 // Uh-oh, an error occurred!
                         return
@@ -201,10 +202,38 @@ class InfoViewController: UIViewController {
             db.collection("Users").document(UserLocal.UserID!).updateData(["comicHistory": FieldValue.arrayUnion([Comic.id ?? ""])])
         }
     }
+    @IBAction func beginComment(_ sender: Any) {
+        
+    }
+    @IBOutlet weak var test: UIScrollView!
+    //var frame = CGRect()
+    @objc private func keyboardWasShown(_ notification: NSNotification) {
+        let key = UIResponder.keyboardFrameBeginUserInfoKey
+        guard let frameValue = notification.userInfo?[key] as? NSValue else {
+        return
+        }
+        let frame = frameValue.cgRectValue
+        print(frame)
+        test.contentInset.bottom = frame.size.height
+        test.verticalScrollIndicatorInsets.bottom = frame.size.height
+        staComment.frame.origin.y = staComment.frame.origin.y - frame.size.height + (view.frame.height - view.safeAreaLayoutGuide.layoutFrame.origin.y - view.safeAreaLayoutGuide.layoutFrame.height)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(
+        self,
+        selector: #selector(keyboardWasShown),
+        name: UIWindow.keyboardDidShowNotification,
+        object: nil)
+        
+        
         Comic.isDownloaded = false
         if loadComicFromRealm(){
+            upLoad()
+            addToHistory()
+        }
+        else{
             upLoad()
             addToHistory()
         }
@@ -253,7 +282,6 @@ class InfoViewController: UIViewController {
 
 extension InfoViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(Comment.listCommentComic)
         return Comment.listCommentComic.count
     }
     
@@ -274,7 +302,6 @@ extension InfoViewController: UITableViewDelegate, UITableViewDataSource{
                 }
                 var str1 = ""
                 var str2 = ""
-                print((document?.data()!["userID"] as? String)!)
                 db.collection("Users").document((document?.data()!["userID"] as? String)!).getDocument { (doc1, err1) in
                     if err1 == nil{
                         str1 = doc1?.data()!["fullName"] as! String
@@ -294,5 +321,15 @@ extension InfoViewController: UITableViewDelegate, UITableViewDataSource{
             }
         }
         return cell
+    }
+}
+
+extension InfoViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }

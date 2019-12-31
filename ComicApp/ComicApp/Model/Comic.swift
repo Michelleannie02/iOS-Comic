@@ -14,6 +14,7 @@ import RealmSwift
 class Comic {
     static var id : String?
     static var isDownloaded : Bool = false
+    static var isDowloading: Int = 0
     static var chap : Int?
     static var nchap : Int?
 }
@@ -49,7 +50,7 @@ class Shelf{
                                     comic.totalChap = data?["totalChap"] as? Int
                                     let posterPath = data?["posterPath"] as? String
                                     let storageRef = storage.reference().child(posterPath!)
-                                    storageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                                    storageRef.getData(maxSize: 7 * 1024 * 1024) { data, error in
                                         if error == nil {
                                             comic.poster = data!
                                             listHistory.append(comic)
@@ -79,7 +80,7 @@ class Shelf{
                                     comic.totalChap = data?["totalChap"] as? Int
                                     let posterPath = data?["posterPath"] as? String
                                     let storageRef = storage.reference().child(posterPath!)
-                                    storageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                                    storageRef.getData(maxSize: 7 * 1024 * 1024) { data, error in
                                         if error == nil {
                                             comic.poster = data!
                                             listLike.append(comic)
@@ -98,6 +99,7 @@ class Shelf{
         comic.idComic = comicID
         comic.totalSize = 1
         comic.Dsize = 0
+        var tmpTotalSize: Int64 = 0
         let db = Firestore.firestore()
         let storage = Storage.storage()
         let ref = db.collection("Comic").document(comicID)
@@ -109,20 +111,18 @@ class Shelf{
                     let data = document.data()
                     comic.name = data?["name"] as? String
                     comic.totalChap = data?["totalChap"] as? Int
+                    comic.totalSize = data?["size"] as? Int64
                     let posterPath = data?["posterPath"] as? String
                     let filePath = data?["filePath"] as? String
                     let storageRef = storage.reference().child(posterPath!)
-                    // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
-                    storageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                    // Download in memory with a maximum allowed size of 7MB (7 * 1024 * 1024 bytes)
+                    storageRef.getData(maxSize: 7 * 1024 * 1024) { data, error in
                         if error == nil {
                             comic.poster = data!
                             listDownload.append(comic)
                             let realm = try! Realm()
-                            if realm.objects(LComic.self).first != nil  {
-                            } else{
-                                try! realm.write {
-                                    realm.add(LComic(value: ["comicID": comic.idComic ?? "","comicName": comic.name ?? "","comicNChap":comic.totalChap ?? 0,"comicPoster":comic.poster ?? Data()]))
-                                }
+                            try! realm.write {
+                                realm.add(LComic(value: ["comicID": comic.idComic ?? "","comicName": comic.name ?? "","comicNChap":comic.totalChap ?? 0,"comicPoster":comic.poster ?? Data()]))
                             }
                             var arrayCalcPercent = [[Int64]]()
                             for index in  0..<comic.totalChap!{
@@ -139,21 +139,21 @@ class Shelf{
                                 let storageRef = storage.reference().child(filePath! + path)
                                 storageRef.listAll { (result, err) in
                                     if err != nil {
-                                        print("Err")
                                         return
                                     } else {
                                         var tmp = result.items.count
                                         var tmp2 = 0
-                                        arrayCalcPercent.append(Array(repeating: 0, count: 2*tmp))
+                                        arrayCalcPercent.append(Array(repeating: 0, count: tmp))
                                         for item in result.items {
                                             let tmp1 = tmp2
                                             tmp2 += 1
-                                            let task = item.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                                            let task = item.getData(maxSize: 7 * 1024 * 1024) { data1, error in
                                                 if error != nil {
                                                     // Uh-oh, an error occurred!
                                                     return
                                                 } else {
-                                                    list.append(data!)
+                                                    list.append(data1!)
+                                                    tmpTotalSize = tmpTotalSize + Int64(data1!.count)
                                                     tmp -= 1
                                                     if tmp == 0{
                                                         if let comicl = realm.objects(LComic.self).filter("comicID == %@",comicID).first {
@@ -163,6 +163,11 @@ class Shelf{
                                                                 comicl.listChap.append(chapterTmp)
                                                             }
                                                             if comicl.listChap.count == comic.totalChap {
+                                                                //update zise
+                                                                if tmpTotalSize != comic.totalSize{
+                                                                    ref.updateData(["size": tmpTotalSize])
+                                                                }
+                                                                Comic.isDowloading -= 1
                                                                 comic.finish = true
                                                             }
                                                         }
@@ -173,10 +178,6 @@ class Shelf{
                                                 let sizeOfImg = snapshot.progress!.completedUnitCount
                                                 comic.Dsize = comic.Dsize! - arrayCalcPercent[tmpIndex][tmp1] + sizeOfImg
                                                 arrayCalcPercent[tmpIndex][tmp1] = sizeOfImg
-                                                if arrayCalcPercent[tmpIndex][arrayCalcPercent[tmpIndex].count / 2 + tmp1] != 1{
-                                                    arrayCalcPercent[tmpIndex][arrayCalcPercent[tmpIndex].count / 2 + tmp1] = 1
-                                                    comic.totalSize = comic.totalSize! + snapshot.progress!.totalUnitCount
-                                                }
                                             }
                                         }
                                     }

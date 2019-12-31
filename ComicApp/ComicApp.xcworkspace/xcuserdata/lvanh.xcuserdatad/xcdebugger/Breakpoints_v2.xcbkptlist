@@ -7,80 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "746520A3-9F14-456F-B1E7-961BD5FEC08A"
+            uuid = "0001825C-E6A2-444D-9940-55DA35F16946"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ComicApp/Model/Comic.swift"
+            filePath = "ComicApp/ViewController/InfoViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
-            landmarkName = "DownloadCommic(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "746520A3-9F14-456F-B1E7-961BD5FEC08A - 3532912ddecfbc95"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (__C.FIRStorageTaskSnapshot) -&gt; () in closure #3 (__C.FIRStorageListResult, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRDocumentSnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static ComicApp.Shelf.DownloadCommic(Swift.String) -&gt; ()"
-                  moduleName = "ComicApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lvanh/Desktop/ios-comicapp/ComicApp/ComicApp/Model/Comic.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "101"
-                  endingLineNumber = "101"
-                  offsetFromSymbolStart = "1818">
-               </Location>
-               <Location
-                  uuid = "746520A3-9F14-456F-B1E7-961BD5FEC08A - 3532912ddecfbc95"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (__C.FIRStorageTaskSnapshot) -&gt; () in closure #3 (__C.FIRStorageListResult, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRDocumentSnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static ComicApp.Shelf.DownloadCommic(Swift.String) -&gt; ()"
-                  moduleName = "ComicApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lvanh/Desktop/ios-comicapp/ComicApp/ComicApp/Model/Comic.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "101"
-                  endingLineNumber = "101"
-                  offsetFromSymbolStart = "1984">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A8F8D2CA-EA16-4F8F-8DA4-75D648623BFA"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ComicApp/Model/Comic.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
-            landmarkName = "DownloadCommic(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "490046AA-510A-48A5-9212-B6E627E43FAA"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ComicApp/Model/Comic.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178"
-            landmarkName = "DownloadCommic(_:)"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
+            landmarkName = "keyboardWasShown(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

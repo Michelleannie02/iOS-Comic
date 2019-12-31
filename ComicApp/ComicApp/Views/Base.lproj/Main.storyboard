@@ -37,8 +37,8 @@
                                                     <rect key="frame" x="28" y="45" width="240" height="128"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHC-8T-rfx">
-                                                    <rect key="frame" x="28" y="278" width="240" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHC-8T-rfx">
+                                                    <rect key="frame" x="28" y="257" width="240" height="42"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -387,9 +387,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDA-xU-efn">
-                                                    <rect key="frame" x="105" y="40" width="294" height="120"/>
+                                                    <rect key="frame" x="105" y="35" width="294" height="125"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="64" id="5v3-Xs-TNk"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="36" id="5v3-Xs-TNk"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -401,7 +401,7 @@
                                                 <constraint firstItem="oDA-xU-efn" firstAttribute="trailing" secondItem="ny7-se-jqz" secondAttribute="trailingMargin" constant="5" id="6FO-Pb-GhA"/>
                                                 <constraint firstItem="oDA-xU-efn" firstAttribute="leading" secondItem="8iU-lh-GOk" secondAttribute="trailing" constant="40" id="8T2-w8-shA"/>
                                                 <constraint firstItem="8iU-lh-GOk" firstAttribute="leading" secondItem="ny7-se-jqz" secondAttribute="leading" constant="5" id="Gfa-nB-CbK"/>
-                                                <constraint firstItem="oDA-xU-efn" firstAttribute="top" secondItem="Dq7-I5-JRR" secondAttribute="bottom" constant="5" id="HNj-ZK-mIU"/>
+                                                <constraint firstItem="oDA-xU-efn" firstAttribute="top" secondItem="Dq7-I5-JRR" secondAttribute="bottom" id="HNj-ZK-mIU"/>
                                                 <constraint firstAttribute="trailing" secondItem="Dq7-I5-JRR" secondAttribute="trailing" constant="5" id="HbC-S6-k70"/>
                                                 <constraint firstItem="8iU-lh-GOk" firstAttribute="top" secondItem="ny7-se-jqz" secondAttribute="top" constant="5" id="aNB-wu-XKK"/>
                                                 <constraint firstAttribute="bottom" secondItem="oDA-xU-efn" secondAttribute="bottom" constant="5" id="uqs-kB-KOu"/>
@@ -431,6 +431,9 @@
                         <viewLayoutGuide key="safeArea" id="MG7-ly-SGD"/>
                     </view>
                     <navigationItem key="navigationItem" title="Review" id="Fgc-EZ-XyX"/>
+                    <connections>
+                        <segue destination="lQg-Cy-XTk" kind="show" identifier="showInfo" id="EHD-4T-FNx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PAA-12-abw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1620,6 +1623,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="326" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="beginComment:" destination="lQg-Cy-XTk" eventType="editingDidBegin" id="v3N-JG-t9Q"/>
+                                            <outlet property="delegate" destination="lQg-Cy-XTk" id="AZ7-bV-W71"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Qs-6h-HtJ">
                                         <rect key="frame" x="326" y="0.0" width="40" height="40"/>
@@ -1670,6 +1677,7 @@
                         <outlet property="readButton" destination="O1G-8U-Jge" id="WSS-By-PKY"/>
                         <outlet property="staComment" destination="rsW-cG-ONy" id="NLX-np-ibv"/>
                         <outlet property="tbvComment" destination="VMR-dM-fiX" id="S09-9O-fyc"/>
+                        <outlet property="test" destination="Rs8-mQ-2gZ" id="xgl-y8-NkX"/>
                         <outlet property="txtComment" destination="xrd-en-D1a" id="Qwg-Qf-pZ2"/>
                     </connections>
                 </viewController>
@@ -1741,7 +1749,7 @@
         <image name="uiwindow.split.2x1" catalog="system" width="64" height="46"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iCE-6c-v6Y"/>
+        <segue reference="EHD-4T-FNx"/>
         <segue reference="zi9-gS-wqc"/>
     </inferredMetricsTieBreakers>
 </document>

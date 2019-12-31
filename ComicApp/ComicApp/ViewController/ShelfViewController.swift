@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ShelfViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
@@ -19,6 +20,15 @@ class ShelfViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBAction func reLoad(_ sender: Any) {
         tbvShelf.reloadData()
     }
+    
+
+    override func viewWillAppear(_ animated: Bool) {
+        tbvShelf.reloadData()
+        if segMenu.selectedSegmentIndex == 0 && Comic.isDowloading > 0{
+            
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return segMenu.selectedSegmentIndex == 0 ? Shelf.listDownload.count : ( segMenu.selectedSegmentIndex == 1 ? Shelf.listHistory.count : Shelf.listLike.count)
     }
@@ -29,7 +39,17 @@ class ShelfViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let cell = tableView.dequeueReusableCell(withIdentifier: "shelfCell", for: indexPath) as! ShelfTableViewCell
         cell.imgPoster.image = UIImage(data: listComic[indexPath.row].poster!)
         cell.lblComicName.text = listComic[indexPath.row].name!
-        cell.lblSub.text = listComic[indexPath.row].finish ? "Total chap: \(String(describing: listComic[indexPath.row].totalChap!))":"Dowloading \(listComic[indexPath.row].Dsize!/1024) Kb /\(listComic[indexPath.row].totalSize!/1024) Kb"
+        if !listComic[indexPath.row].finish {
+            if listComic[indexPath.row].Dsize! > listComic[indexPath.row].totalSize!{
+                cell.lblSub.text = "Dowloading \(listComic[indexPath.row].Dsize!/1024) Kb"
+            }
+            else{
+                cell.lblSub.text = "Dowloading \(listComic[indexPath.row].Dsize!/1024) Kb /\(listComic[indexPath.row].totalSize!/1024) Kb"
+            }
+        }
+        else{
+            cell.lblSub.text = "Total chap: \(String(describing: listComic[indexPath.row].totalChap!))"
+        }
         cell.avdDownload.isHidden = listComic[indexPath.row].finish
         cell.btnCancel.isHidden = listComic[indexPath.row].finish
         if segMenu.selectedSegmentIndex == 0 {

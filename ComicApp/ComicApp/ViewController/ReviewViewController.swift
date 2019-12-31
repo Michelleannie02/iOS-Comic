@@ -57,8 +57,13 @@ class ReviewViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        Comic.id = Comment.listReviewWorld[indexPath.row]
-        performSegue(withIdentifier: "showInfo", sender: self)
+        let db = Firestore.firestore()
+        db.collection("Comment").document(Comment.listReviewWorld[Comment.listReviewWorld.count - indexPath.row - 1]).getDocument { (document, error) in
+            if error == nil{
+                Comic.id = document?.data()!["comicID"] as? String
+                self.performSegue(withIdentifier: "showInfo", sender: self)
+            }
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()

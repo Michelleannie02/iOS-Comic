@@ -16,29 +16,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="02" translatesAutoresizingMaskIntoConstraints="NO" id="udP-TW-p1D">
-                                <rect key="frame" x="41.5" y="372" width="331" height="66"/>
+                                <rect key="frame" x="41.5" y="415" width="331" height="66"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="udP-TW-p1D" secondAttribute="height" multiplier="5" id="fhC-ug-ZqK"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNc-Hj-J5w">
-                                <rect key="frame" x="157" y="448" width="100" height="0.0"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" id="EZc-RC-C9Z"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="cRZ-dc-8z5"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="udP-TW-p1D" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.8" id="Z2d-nh-42s"/>
-                            <constraint firstItem="YNc-Hj-J5w" firstAttribute="top" secondItem="udP-TW-p1D" secondAttribute="bottom" constant="10" id="feY-X7-CS2"/>
-                            <constraint firstItem="YNc-Hj-J5w" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="gtk-NY-rxu"/>
+                            <constraint firstItem="udP-TW-p1D" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="aqX-h5-GRU"/>
                             <constraint firstItem="udP-TW-p1D" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="uo5-uu-ryI"/>
-                            <constraint firstItem="YNc-Hj-J5w" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="zHX-v0-lfG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

@@ -11,7 +11,7 @@ import Firebase
 
 class ReviewViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
+    @IBOutlet weak var tbvReview: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Comment.listReviewWorld.count
@@ -34,7 +34,6 @@ class ReviewViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
                 var str1 = ""
                 var str2 = ""
-                print((document?.data()!["userID"] as? String)!)
                 db.collection("Users").document((document?.data()!["userID"] as? String)!).getDocument { (doc1, err1) in
                     if err1 == nil{
                         str1 = doc1?.data()!["fullName"] as! String
@@ -64,6 +63,9 @@ class ReviewViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 self.performSegue(withIdentifier: "showInfo", sender: self)
             }
         }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        tbvReview.reloadData()
     }
     override func viewDidLoad() {
         super.viewDidLoad()

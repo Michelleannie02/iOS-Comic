@@ -17,6 +17,7 @@ class Comic {
     static var isDowloading: Int = 0
     static var chap : Int?
     static var nchap : Int?
+    static var comicSearchText = ""
 }
 class Shelf{
     static var listDownload: [DComic] = []
@@ -115,7 +116,7 @@ class Shelf{
                     let posterPath = data?["posterPath"] as? String
                     let filePath = data?["filePath"] as? String
                     let storageRef = storage.reference().child(posterPath!)
-                    // Download in memory with a maximum allowed size of 7MB (7 * 1024 * 1024 bytes)
+                    var arrayCalcPercent = [Int64]()
                     storageRef.getData(maxSize: 7 * 1024 * 1024) { data, error in
                         if error == nil {
                             comic.poster = data!
@@ -124,9 +125,7 @@ class Shelf{
                             try! realm.write {
                                 realm.add(LComic(value: ["comicID": comic.idComic ?? "","comicName": comic.name ?? "","comicNChap":comic.totalChap ?? 0,"comicPoster":comic.poster ?? Data()]))
                             }
-                            var arrayCalcPercent = [[Int64]]()
                             for index in  0..<comic.totalChap!{
-                                let tmpIndex = index
                                 let list = List<Data>()
                                 var path = ""
                                 if index < 9 {
@@ -142,11 +141,9 @@ class Shelf{
                                         return
                                     } else {
                                         var tmp = result.items.count
-                                        var tmp2 = 0
-                                        arrayCalcPercent.append(Array(repeating: 0, count: tmp))
                                         for item in result.items {
-                                            let tmp1 = tmp2
-                                            tmp2 += 1
+                                            let indexArr = arrayCalcPercent.count
+                                            arrayCalcPercent.append(0);
                                             let task = item.getData(maxSize: 7 * 1024 * 1024) { data1, error in
                                                 if error != nil {
                                                     // Uh-oh, an error occurred!
@@ -175,9 +172,12 @@ class Shelf{
                                                 }
                                             }
                                             task.observe(.progress) { (snapshot) in
-                                                let sizeOfImg = snapshot.progress!.completedUnitCount
-                                                comic.Dsize = comic.Dsize! - arrayCalcPercent[tmpIndex][tmp1] + sizeOfImg
-                                                arrayCalcPercent[tmpIndex][tmp1] = sizeOfImg
+                                                arrayCalcPercent[indexArr] = snapshot.progress!.completedUnitCount
+                                                var tmpCalcSize : Int64 = 0
+                                                for tmpSize in arrayCalcPercent {
+                                                    tmpCalcSize += tmpSize;
+                                                }
+                                                comic.Dsize = tmpCalcSize;
                                             }
                                         }
                                     }

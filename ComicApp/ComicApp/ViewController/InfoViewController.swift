@@ -42,8 +42,9 @@ class InfoViewController: UIViewController {
     
     @IBOutlet weak var txtComment: UITextField!
     
-    @IBOutlet weak var staComment: UIStackView!
     
+    @IBOutlet weak var staComment: UIView!
+    @IBOutlet weak var staFixKeyboard: UIStackView!
     @IBOutlet weak var tbvComment: UITableView!
     
     @IBAction func Like(_ sender: Any) {
@@ -206,27 +207,38 @@ class InfoViewController: UIViewController {
         
     }
     @IBOutlet weak var test: UIScrollView!
-    //var frame = CGRect()
-    @objc private func keyboardWasShown(_ notification: NSNotification) {
-        let key = UIResponder.keyboardFrameBeginUserInfoKey
-        guard let frameValue = notification.userInfo?[key] as? NSValue else {
-        return
+
+    func setHeightFixKey(_ keyboardHeight: Int){
+        var height = keyboardHeight
+        for binaryHeight in staFixKeyboard.subviews {
+            binaryHeight.isHidden = true
+            if height % 2 == 1{
+                height -= 1
+                binaryHeight.isHidden = false
+            }
+            height /= 2
         }
-        let frame = frameValue.cgRectValue
-        print(frame)
-        test.contentInset.bottom = frame.size.height
-        test.verticalScrollIndicatorInsets.bottom = frame.size.height
-        staComment.frame.origin.y = staComment.frame.origin.y - frame.size.height + (view.frame.height - view.safeAreaLayoutGuide.layoutFrame.origin.y - view.safeAreaLayoutGuide.layoutFrame.height)
     }
+    var keyboardHeight : Int = 0
+    @objc func keyboardWillShow(_ notification: Notification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            keyboardHeight = Int(keyboardRectangle.height)
+            test.contentInset.bottom = keyboardRectangle.height
+            test.verticalScrollIndicatorInsets.bottom = keyboardRectangle.height
+            setHeightFixKey(keyboardHeight)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         NotificationCenter.default.addObserver(
-        self,
-        selector: #selector(keyboardWasShown),
-        name: UIWindow.keyboardDidShowNotification,
-        object: nil)
-        
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
         
         Comic.isDownloaded = false
         if loadComicFromRealm(){
@@ -327,6 +339,7 @@ extension InfoViewController: UITableViewDelegate, UITableViewDataSource{
 extension InfoViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        setHeightFixKey(0)
         return true
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

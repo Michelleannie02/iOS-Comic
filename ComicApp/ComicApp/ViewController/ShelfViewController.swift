@@ -41,10 +41,10 @@ class ShelfViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.lblComicName.text = listComic[indexPath.row].name!
         if !listComic[indexPath.row].finish {
             if listComic[indexPath.row].Dsize! > listComic[indexPath.row].totalSize!{
-                cell.lblSub.text = "Dowloading \(listComic[indexPath.row].Dsize!/1024) Kb"
+                cell.lblSub.text = "Dowloading \(Utilities.fixTypeSize(listComic[indexPath.row].totalSize!)) Kb"
             }
             else{
-                cell.lblSub.text = "Dowloading \(listComic[indexPath.row].Dsize!/1024) Kb /\(listComic[indexPath.row].totalSize!/1024) Kb"
+                cell.lblSub.text = "Dowloading \(Utilities.fixTypeSize(listComic[indexPath.row].Dsize!)) /\(Utilities.fixTypeSize(listComic[indexPath.row].totalSize!))"
             }
         }
         else{

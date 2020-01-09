@@ -70,4 +70,23 @@ class Utilities{
         img.layer.borderWidth = 10
         img.layer.borderColor = UIColor.white.cgColor
     }
+    static func fixTypeSize(_ size:Int64) -> String{
+        if size < 1024 {
+            return "\(size) Byte"
+        }
+        else if size < 1024 * 1024{
+            return "\(Int(size/1024)) KB"
+
+        }
+        else if size < 1024 * 1024 * 1024{
+            return "\(Int(size/(1024 * 1024))) MB"
+        }
+        else if size < 1024 * 1024 * 1024 * 1024{
+            return "\(Int(size/(1024 * 1024 * 1024))) GB"
+        }
+        else if size < 1024 * 1024 * 1024 * 1024 * 1024{
+            return "\(Int(size/(1024 * 1024 * 1024 * 1024))) TG"
+        }
+        return ""
+    }
 }

@@ -23,42 +23,47 @@ class ReadViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet weak var searchButton: UIBarButtonItem!
     
     @IBAction func showSearchBar(_ sender: Any) {
-        
-        mySearch.isHidden = false
-        
-        mySearch.sizeToFit()
-        self.navigationItem.titleView = mySearch
-        self.navigationItem.rightBarButtonItem = .none
+        showSearchBar()
     }
     
     @IBAction func tapToHideKeyboard(_ sender: UITapGestureRecognizer) {
-           self.mySearch.resignFirstResponder()
-       }
-       
-       func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-           searchBar.endEditing(true)
-           searchQuery = mySearch.text!
-           tap.isEnabled = false
-           
-           images = [UIImage]()
-           names = [String] ()
-        
-           self.collectionView.reloadData()
-           self.viewDidLoad()
-       }
-       
-       func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-           self.tap.isEnabled = true
-       }
-       
-       func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-           self.tap.isEnabled = false
-       }
+        hideSearchBar()
+        self.mySearch.resignFirstResponder()
+    }
+    func showSearchBar(){
+        mySearch.isHidden = false
+        mySearch.sizeToFit()
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    func hideSearchBar(){
+        if mySearch.text == ""{
+            mySearch.isHidden = true
+            self.navigationController?.setNavigationBarHidden(false, animated: false)
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+        if mySearch.text != ""{
+            Comic.comicSearchText = mySearch.text!
+            tap.isEnabled = false
+            self.navigationController?.setNavigationBarHidden(false, animated: false)
+            self.performSegue(withIdentifier: "searchNav", sender: self)
+        }
+    }
+
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.tap.isEnabled = true
+    }
+
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        self.tap.isEnabled = false
+    }
     
     
     var images = [UIImage]()
     var names = [String] ()
-    var searchQuery = ""
+    var searchQuery = Comic.comicSearchText
 
     func downImg() {
         let storage = Storage.storage()
@@ -133,6 +138,8 @@ class ReadViewController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
         //print("You selected cell #\(indexPath.item)!")
+        mySearch.isHidden = true
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
         Comic.id = self.names[indexPath.item]
     }
 
@@ -140,6 +147,8 @@ class ReadViewController: UIViewController, UICollectionViewDataSource, UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
         downImg()
+        mySearch.text = Comic.comicSearchText
+        Comic.comicSearchText = ""
         let w = view.safeAreaLayoutGuide.layoutFrame.size.width
         
         let width = w/2 - 15
@@ -152,9 +161,6 @@ class ReadViewController: UIViewController, UICollectionViewDataSource, UICollec
         layout.minimumLineSpacing = 10
         tap.isEnabled = false
         collectionView.collectionViewLayout = layout
-        
-    //mySearch.searchTextField.backgroundColor = .white
-        
     }
     
      override func viewDidLayoutSubviews() {

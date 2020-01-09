@@ -47,6 +47,7 @@ class ReadViewController: UIViewController, UICollectionViewDataSource, UICollec
         if mySearch.text != ""{
             Comic.comicSearchText = mySearch.text!
             tap.isEnabled = false
+            mySearch.isHidden = true
             self.navigationController?.setNavigationBarHidden(false, animated: false)
             self.performSegue(withIdentifier: "searchNav", sender: self)
         }

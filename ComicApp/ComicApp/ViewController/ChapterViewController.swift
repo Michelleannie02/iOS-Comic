@@ -67,31 +67,16 @@ class ChapterViewController: UIViewController, UIScrollViewDelegate {
                        return
                    } else {
                        var height = CGFloat(0)
-                       //for i in result.items {print(i.name)}
-                       
+
                        for item in result.items {
-                           // The items under storageReference.
-                           // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
-                           
-                           
                            item.getData(maxSize: 7 * 1024 * 1024) { data, error in
                                if error != nil {
                                    // Uh-oh, an error occurred!
                                    return
                                } else {
-                                   // Data for "images/island.jpg" is returned
-                                   
-                                   
-                                                     
-                                   //group.notify(queue: DispatchQueue.main)
                                    let image = UIImage(data: data!)
                                  
                                    self.images.append(image!)
-                                   
-                                   //print(item.name)
-                                   
-                                   
-                                       
                                    let imageView = UIImageView()
                                    
                                    let widthScale = self.read.bounds.width /  image!.size.width
@@ -112,8 +97,6 @@ class ChapterViewController: UIViewController, UIScrollViewDelegate {
                        }
                    }
                }
-
-        
     }
     
     func loadChapterFromRealm(_ index: Int){
@@ -134,7 +117,6 @@ class ChapterViewController: UIViewController, UIScrollViewDelegate {
                     self.read.contentSize.height = height + 0
                     self.read.addSubview(imageView)
                 }
-                
                 return
             }
         }
@@ -164,7 +146,15 @@ class ChapterViewController: UIViewController, UIScrollViewDelegate {
         }
         toolChap.isHidden = true;
     }
+    override func willRotate(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
+        //fix o day==========================================================
+        
+        
+        
+        
+        //=======================================================================
     
+    }
     override func viewDidLayoutSubviews() {
 //        viewDidLoad()
     }

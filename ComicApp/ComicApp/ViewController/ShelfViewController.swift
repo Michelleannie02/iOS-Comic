@@ -25,7 +25,19 @@ class ShelfViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewWillAppear(_ animated: Bool) {
         tbvShelf.reloadData()
         if segMenu.selectedSegmentIndex == 0 && Comic.isDowloading > 0{
-            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                self.tbvShelf.reloadData()
+                self.sleepAndReload()
+            }
+        }
+    }
+    
+    func sleepAndReload(){
+        if Comic.isDowloading > 0 {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                self.tbvShelf.reloadData()
+                self.sleepAndReload()
+            }
         }
     }
     
@@ -41,7 +53,7 @@ class ShelfViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.lblComicName.text = listComic[indexPath.row].name!
         if !listComic[indexPath.row].finish {
             if listComic[indexPath.row].Dsize! > listComic[indexPath.row].totalSize!{
-                cell.lblSub.text = "Dowloading \(Utilities.fixTypeSize(listComic[indexPath.row].totalSize!)) Kb"
+                cell.lblSub.text = "Dowloading \(Utilities.fixTypeSize(listComic[indexPath.row].totalSize!))"
             }
             else{
                 cell.lblSub.text = "Dowloading \(Utilities.fixTypeSize(listComic[indexPath.row].Dsize!)) /\(Utilities.fixTypeSize(listComic[indexPath.row].totalSize!))"
@@ -51,9 +63,10 @@ class ShelfViewController: UIViewController, UITableViewDelegate, UITableViewDat
             cell.lblSub.text = "Total chap: \(String(describing: listComic[indexPath.row].totalChap!))"
         }
         cell.avdDownload.isHidden = listComic[indexPath.row].finish
-        cell.btnCancel.isHidden = listComic[indexPath.row].finish
+        //cell.btnCancel.isHidden = listComic[indexPath.row].finish
+        cell.btnCancel.isHidden = true //do chua hoan thanh nen hide no di
         if segMenu.selectedSegmentIndex == 0 {
-            cell.avdDownload.setProgress(Float(listComic[indexPath.row].Dsize!) / Float(listComic[indexPath.row].totalSize!), animated: false)
+            cell.avdDownload.setProgress(Float(listComic[indexPath.row].Dsize!) / Float(listComic[indexPath.row].totalSize!), animated: true)
         }
         return cell
     }
